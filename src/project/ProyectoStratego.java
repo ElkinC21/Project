@@ -116,8 +116,6 @@ public class ProyectoStratego extends javax.swing.JFrame {
     String tierraVillanos = "/project/TIERRAVILLANOS.png";
 
    
-        
-    
 
     public ProyectoStratego() {
        
