@@ -20,7 +20,7 @@ public class Crearcuenta extends javax.swing.JFrame {
 
     public Crearcuenta() {
         initComponents();
-        setSize(750, 800);
+        setSize(750,920);
         setLayout(null);
         setLocationRelativeTo(this);
         this.sistemaCuentas = new Cuentas();
@@ -45,6 +45,7 @@ public class Crearcuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         labelu = new javax.swing.JLabel();
         labelcontra = new javax.swing.JLabel();
         registraru = new javax.swing.JTextField();
@@ -57,23 +58,33 @@ public class Crearcuenta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        labelu.setBackground(new java.awt.Color(153, 153, 153));
-        labelu.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(102, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Crear Cuenta");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(170, 170, 380, 170);
+
+        labelu.setBackground(new java.awt.Color(102, 102, 0));
+        labelu.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        labelu.setForeground(new java.awt.Color(0, 0, 0));
         labelu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-maravilla-48.png"))); // NOI18N
         labelu.setText("Usuario:");
         labelu.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         labelu.setOpaque(true);
         getContentPane().add(labelu);
-        labelu.setBounds(100, 250, 260, 50);
+        labelu.setBounds(100, 300, 260, 50);
 
-        labelcontra.setBackground(new java.awt.Color(153, 153, 153));
-        labelcontra.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        labelcontra.setBackground(new java.awt.Color(102, 102, 0));
+        labelcontra.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        labelcontra.setForeground(new java.awt.Color(0, 0, 0));
         labelcontra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-maravilla-48.png"))); // NOI18N
         labelcontra.setText("Contraseña:");
         labelcontra.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         labelcontra.setOpaque(true);
         getContentPane().add(labelcontra);
-        labelcontra.setBounds(100, 330, 260, 50);
+        labelcontra.setBounds(100, 380, 260, 50);
 
         registraru.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
@@ -86,7 +97,7 @@ public class Crearcuenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registraru);
-        registraru.setBounds(390, 250, 270, 50);
+        registraru.setBounds(390, 300, 270, 50);
 
         registrarc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,11 +105,11 @@ public class Crearcuenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registrarc);
-        registrarc.setBounds(390, 330, 270, 50);
+        registrarc.setBounds(390, 380, 270, 50);
 
-        registrar.setBackground(new java.awt.Color(153, 153, 153));
-        registrar.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
-        registrar.setForeground(new java.awt.Color(255, 255, 255));
+        registrar.setBackground(new java.awt.Color(102, 102, 0));
+        registrar.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        registrar.setForeground(new java.awt.Color(0, 0, 0));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registro-24.png"))); // NOI18N
         registrar.setText("Registrarse");
         registrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -113,15 +124,16 @@ public class Crearcuenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registrar);
-        registrar.setBounds(280, 490, 210, 50);
+        registrar.setBounds(260, 590, 210, 50);
 
-        confcontra.setBackground(new java.awt.Color(153, 153, 153));
-        confcontra.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        confcontra.setBackground(new java.awt.Color(102, 102, 0));
+        confcontra.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        confcontra.setForeground(new java.awt.Color(0, 0, 0));
         confcontra.setText("Confirmar Contraseña:");
         confcontra.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         confcontra.setOpaque(true);
         getContentPane().add(confcontra);
-        confcontra.setBounds(100, 400, 260, 50);
+        confcontra.setBounds(100, 450, 260, 50);
 
         textconf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,11 +141,11 @@ public class Crearcuenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textconf);
-        textconf.setBounds(390, 400, 270, 50);
+        textconf.setBounds(390, 450, 270, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stra.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bk2.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(-130, -30, 880, 900);
+        jLabel3.setBounds(0, 0, 750, 900);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,6 +281,7 @@ public class Crearcuenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel confcontra;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelcontra;
     private javax.swing.JLabel labelu;

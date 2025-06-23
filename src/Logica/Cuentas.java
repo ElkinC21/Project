@@ -11,36 +11,31 @@ package Logica;
 public class Cuentas {
     private Usuario[] usuarios;
     private int numUsuarios;
-    private static final int MAX_USUARIOS = 100; 
+    private static final int MAX_USUARIOS = 100;    
+    
+    public static String gameMode = "Tutorial";
+    private static int totalUsuariosHistoricos = 0; 
+    private static int totalPartidasJugadas = 0;
+    private static int totalVictoriasHeroes = 0; 
+    private static int totalVictoriasVillanos = 0;
 
     public Cuentas() {
         usuarios = new Usuario[MAX_USUARIOS];
         numUsuarios = 0; 
         System.out.println("Sistema de cuentas inicializado. Capacidad máxima: " + MAX_USUARIOS);
-        
-        // Crear usuarios de prueba para facilitar las pruebas
-        crearUsuariosDePrueba();
     }
     
-    private void crearUsuariosDePrueba() {
-        // Crear usuario de prueba
-        registrarUsuario("admin", "12345");
-        Usuario usuarioPrueba = buscarUsuario("admin");
-        if (usuarioPrueba != null) {
-            // Añadir algunos juegos de ejemplo
-            usuarioPrueba.registrojuegos(new juego("TERMINADO - 5/5 correctas", 500));
-            usuarioPrueba.registrojuegos(new juego("TERMINADO - 3/5 correctas", 300));
-            usuarioPrueba.registrojuegos(new juego("TERMINADO - 4/5 correctas", 400));
-            usuarioPrueba.setPuntaje(1200);
-            System.out.println("Usuario de prueba creado: admin/12345 con historial de partidos");
-        }
+    
+    public Usuario[] getUsuarios() {
+        Usuario[] activeUsers = new Usuario[numUsuarios];
+        System.arraycopy(usuarios, 0, activeUsers, 0, numUsuarios);
+        return activeUsers;
     }
-
+    
     public boolean registrarUsuario(String username, String password) {
         System.out.println("Intentando registrar usuario: '" + username + "' con contraseña de " + 
                           (password != null ? password.length() : 0) + " caracteres");
         
-        // Validar entrada básica
         if (username == null || username.trim().isEmpty()) {
             System.out.println("ERROR: El nombre de usuario está vacío");
             return false;
@@ -51,23 +46,19 @@ public class Cuentas {
             return false;
         }
         
-        // Limpiar espacios
         username = username.trim();
         password = password.trim();
         
-        // Validar capacidad
         if (numUsuarios >= MAX_USUARIOS) {
             System.out.println("ERROR: Capacidad máxima alcanzada (" + MAX_USUARIOS + " usuarios)");
             return false;
         }
 
-        // Validar longitud de contraseña
         if (password.length() != 5) {
             System.out.println("ERROR: La contraseña debe tener exactamente 5 caracteres. Actual: " + password.length());
             return false;
         }
 
-        // Verificar usuario duplicado
         for (int i = 0; i < numUsuarios; i++) {
             if (usuarios[i] != null && usuarios[i].getUsuario().equalsIgnoreCase(username)) { 
                 System.out.println("ERROR: El usuario '" + username + "' ya existe");
@@ -75,7 +66,6 @@ public class Cuentas {
             }
         }
 
-        // Crear usuario
         try {
             usuarios[numUsuarios] = new Usuario(username, password);
             numUsuarios++;
@@ -182,6 +172,35 @@ public class Cuentas {
     public int getNumUsuarios() {
         return numUsuarios;
     }
+    
+     public static void incrementTotalPartidasJugadas() {
+        totalPartidasJugadas++;
+    }
+
+    public static void incrementTotalVictoriasHeroes() {
+        totalVictoriasHeroes++;
+    }
+
+    public static void incrementTotalVictoriasVillanos() {
+        totalVictoriasVillanos++;
+    }
+
+    public static int getTotalUsuariosHistoricos() {
+        return totalUsuariosHistoricos;
+    }
+
+    public static int getTotalPartidasJugadas() {
+        return totalPartidasJugadas;
+    }
+
+    public static int getTotalVictoriasHeroes() {
+        return totalVictoriasHeroes;
+    }
+
+    public static int getTotalVictoriasVillanos() {
+        return totalVictoriasVillanos;
+    }
+    
 }
 
 

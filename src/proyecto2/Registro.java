@@ -20,12 +20,9 @@ public class Registro extends javax.swing.JFrame {
     private Cuentas sistemaCuentas;
     private static final int max_U = 100;
 
-    /**
-     * Creates new form Registro
-     */
     public Registro() {
         initComponents();
-        setSize(750,800);
+        setSize(750,920);
         setLocationRelativeTo(null);
         this.sistemaCuentas = new Cuentas(); 
 
@@ -46,6 +43,7 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ingresu = new javax.swing.JTextField();
@@ -57,23 +55,33 @@ public class Registro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel2.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(102, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Registro");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(190, 220, 380, 170);
+
+        jLabel2.setBackground(new java.awt.Color(102, 102, 0));
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-maravilla-48.png"))); // NOI18N
         jLabel2.setText("Usuario:");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(70, 250, 260, 50);
+        jLabel2.setBounds(70, 380, 260, 50);
 
-        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(102, 102, 0));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-maravilla-48.png"))); // NOI18N
         jLabel3.setText("Contraseña:");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setOpaque(true);
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 320, 260, 50);
+        jLabel3.setBounds(70, 450, 260, 50);
 
         ingresu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,12 +89,13 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ingresu);
-        ingresu.setBounds(370, 250, 290, 50);
+        ingresu.setBounds(370, 380, 290, 50);
         getContentPane().add(ingresc);
-        ingresc.setBounds(370, 320, 290, 50);
+        ingresc.setBounds(370, 450, 290, 50);
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registro-50.png"))); // NOI18N
         jButton1.setText("Iniciar Sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,10 +104,11 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(100, 450, 250, 60);
+        jButton1.setBounds(100, 580, 250, 60);
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 153));
-        jButton2.setFont(new java.awt.Font("Wide Latin", 1, 12)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(102, 102, 0));
+        jButton2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,11 +116,11 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(370, 450, 250, 60);
+        jButton2.setBounds(370, 580, 250, 60);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stra.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bk2.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(-130, 0, 1360, 870);
+        jLabel4.setBounds(0, 0, 750, 870);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,6 +209,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JTextField ingresu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

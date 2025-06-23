@@ -1,30 +1,34 @@
 package project;
 
 import java.awt.Image;
-import java.net.URL;
-
 import javax.swing.JButton;
-import proyecto2.Juego;
-import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import java.util.Random;
+
+import proyecto2.Juego;
+import Logica.Cuentas;
+import Logica.Usuario;
+import Logica.juego;
 
 public class ProyectoStratego extends javax.swing.JFrame {
     private Juego gameMenu;
-  private boolean Batalla=false;
-  private int Batallaconteo;
-  private Timer battleTimer;
- private Ficha ficha1;
- private Ficha ficha2;
- private int filaficha1;
- private int filaficha2;
- private int colficha1;
- private int colficha2;
+    private Cuentas sistemaCuentas;
+    private Usuario usuarioActual;
+    private String userFaction;
+    private String opponentFaction;
+
+    private boolean Batalla=false;
+    private int Batallaconteo;
+    private Timer battleTimer;
+    private Ficha ficha1;
+    private Ficha ficha2;
+    private int filaficha1;
+    private int filaficha2;
+    private int colficha1;
+    private int colficha2;
   
   private javax.swing.border.Border[][] Borders = new javax.swing.border.Border[10][10];
     private Ficha fichaseleccionada = null;
@@ -40,7 +44,7 @@ public class ProyectoStratego extends javax.swing.JFrame {
     private JLabel heroeseliminados[];
 
     private ImageIcon[][] guardariconos = new ImageIcon[10][10];
-    
+      
     String WINS="/project/WINS2.png";
     String FIGHT="/project/FIGHT.png";
     String LOSE="/project/LOSE2.png";
@@ -117,18 +121,24 @@ public class ProyectoStratego extends javax.swing.JFrame {
 
    
 
-    public ProyectoStratego() {
-       
+    public ProyectoStratego(Juego gameMenu, Cuentas sistemaCuentas, Usuario usuarioActual, String chosenFaction) {
+        this.gameMenu = gameMenu;
+        this.sistemaCuentas = sistemaCuentas;
+        this.usuarioActual = usuarioActual;
+        this.userFaction = chosenFaction;
+        this.opponentFaction = chosenFaction.equals("Heroes") ? "Villanos" : "Heroes";
+        this.turno = "Heroes"; 
+
         initComponents();
         jLabel5.setIcon(new ImageIcon(getClass().getResource("/project/tablerofinal_1.png")));
-      Doradofondo.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
-      Doradofondoheroes.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
-      VS.setIcon(new ImageIcon(getClass().getResource("/project/VS_transparente_100x80.png")));
-      Fondopanelpelea.setIcon(new ImageIcon(getClass().getResource("/project/resized_image_750x470.png")));
-      villano1.setIcon(new ImageIcon(getClass().getResource("/project/VILLANOS-ELIMINADOS_230X25_1.png")));
-      tituloheroes.setIcon(new ImageIcon(getClass().getResource("/project/HEROES-ELIMINADOS_230X25.png")));
-    
-        
+        Doradofondo.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
+        Doradofondoheroes.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
+        VS.setIcon(new ImageIcon(getClass().getResource("/project/VS_transparente_100x80.png")));
+        Fondopanelpelea.setIcon(new ImageIcon(getClass().getResource("/project/resized_image_750x470.png")));
+        villano1.setIcon(new ImageIcon(getClass().getResource("/project/VILLANOS-ELIMINADOS_230X25_1.png")));
+        tituloheroes.setIcon(new ImageIcon(getClass().getResource("/project/HEROES-ELIMINADOS_230X25.png")));
+
+
         continuar.setVisible(false);
         Fondopanelpelea.setVisible(false);
         HeroeBatalla.setVisible(false);
@@ -140,6 +150,7 @@ public class ProyectoStratego extends javax.swing.JFrame {
 
         villanoseliminados = new JLabel[]{villano1a, villano2a, villano3a, villano4a, villano5a, villano6a, villano7a, villano8a, villanoa9, villanoa10, villanoa11, villanoa12, villanoa13, villanoa14, villanoa15, villanoa16, villanoa17, villanoa18, villanoa19, villanoa20, villanoa21, villanoa22, villanoa23, villanoa24, villanoa25, villanoa26, villanoa27, villanoa28, villanoa30, villanoa31, villanoa32, villanoa34};
         heroeseliminados = new JLabel[]{heroe1, heroe2, heroe3, heroe4, heroe5, heroe6, heroe7, heroe8, heroe9, heroe10, heroe11, heroe12, heroe13, heroe14, heroe15, heroe16, heroe17, heroe18, heroe19, heroe20, heroe21, heroe22, heroe23, heroe24, heroe25, heroe26, heroe27, heroe28, heroe29, heroe30, heroe31, heroe32, heroe33};
+        
         tableroBotones[0][0] = b1;
         tableroBotones[0][1] = b2;
         tableroBotones[0][2] = b3;
@@ -240,19 +251,36 @@ public class ProyectoStratego extends javax.swing.JFrame {
         tableroBotones[9][7] = b98;
         tableroBotones[9][8] = b99;
         tableroBotones[9][9] = b100;
-
-        for (int i = 0; i < 10; i++) {
+        
+for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
+            if (tableroBotones[i][j] != null) {
                 Borders[i][j] = tableroBotones[i][j].getBorder();
             }
+            }
         }
+        
         ValorFichas();
         inicializarFormacion(villanos, true);
         inicializarFormacion(heroes, false);
-        guardar();
-        ocultarFichas();
 
+        if (Cuentas.gameMode.equals("Tutorial")) {
+            revelarFichas();
+        } else {
+            ocultarFichas();
+        }
+        
+        actualizarTitulo();
+        
+        
+        tituloheroes.setText("Turno: " + turno);
     }
+    
+    public ProyectoStratego() {
+        this(null, null, null, "Heroes");
+    }
+    
+    
     
     private void pintaropciones(int fila, int columna) {
         int rango = fichas[fila][columna].getRango();
@@ -362,7 +390,7 @@ public class ProyectoStratego extends javax.swing.JFrame {
             }
         }
     }
-
+    
     private boolean vermovimientos() {
         for (int fila = 0; fila < 10; fila++) {
 
@@ -404,7 +432,6 @@ public class ProyectoStratego extends javax.swing.JFrame {
             }
         }
     }
-
     private void ValorFichas() {
 
         heroes[0] = new Ficha("Beast", new ImageIcon(getClass().getResource(beast)), "Heroes", 3);
@@ -489,37 +516,181 @@ public class ProyectoStratego extends javax.swing.JFrame {
         villanos[38] = new Ficha("Pumpkin Bomb", new ImageIcon(getClass().getResource(pumpkinBomb1)), "Villanos", 15);
         villanos[39] = new Ficha("Tierra Villanos", new ImageIcon(getClass().getResource(tierraVillanos)), "Villanos", 20);
     }
+private void Click(int fila, int columna) {
+    if (Batalla) return; // No hacer nada si una batalla está en curso
+    limpiarpintados();
+    ficharevelar.setIcon(null);
+
+    // No se puede mover a las zonas de agua
+    if (fichaseleccionada != null && ((fila == 4 || fila == 5)
+            && (columna == 2 || columna == 3 || columna == 6 || columna == 7))) {
+        JOptionPane.showMessageDialog(this, "Esta es una zona prohibida", "Movimiento no valido", JOptionPane.PLAIN_MESSAGE);
+        fichaseleccionada = null;
+        return;
+    }
+
+    // --- SELECCIÓN DE FICHA ---
+    if (fichaseleccionada == null && fichas[fila][columna] != null) {
+        // Verificar si es el turno del jugador correcto
+        if (!fichas[fila][columna].getTipo().equals(turno)) {
+            JOptionPane.showMessageDialog(this, "TURNO DEL RIVAL!!!!!", "", JOptionPane.PLAIN_MESSAGE);
+            fichaseleccionada = null;
+            return;
+        }
+        
+        // Asignar la ficha seleccionada
+        fichaseleccionada = fichas[fila][columna];
+        filasalida = fila;
+        colsalida = columna;
+        pintaropciones(filasalida, colsalida);
+
+        // Revelar la ficha seleccionada en el panel lateral
+        ficharevelar.setIcon(Cambiartamano(fichaseleccionada.getIcono(), ficharevelar.getWidth(), ficharevelar.getHeight()));
+        return;
+    }
+
+    // --- MOVIMIENTO O ATAQUE DE FICHA ---
+    if (fichaseleccionada != null) {
+        // Validar que la ficha seleccionada pueda moverse
+        if (fichaseleccionada.getRango() == 15 || fichaseleccionada.getRango() == 20) {
+            JOptionPane.showMessageDialog(this, "Esta ficha no puede moverse", "", JOptionPane.PLAIN_MESSAGE);
+            fichaseleccionada = null;
+            return;
+        }
+        
+        // Validar si el movimiento es legal en el tablero
+        if (!movvalido(filasalida, colsalida, fila, columna)) {
+            JOptionPane.showMessageDialog(this, "Movimiento no válido", "", JOptionPane.PLAIN_MESSAGE);
+            fichaseleccionada = null;
+            return;
+        }
+        
+        Ficha destino = fichas[fila][columna];
+
+        // CONDICIÓN DE VICTORIA: CAPTURAR TIERRA
+        if (destino != null && destino.getRango() == 20) {
+            if (!fichaseleccionada.getTipo().equals(destino.getTipo())) {
+                String ganadorNombreusuario = usuarioActual.getUsuario();
+                String ganadorBandofaccion = userFaction;
+                String perdedorNombreusuario = gameMenu.getOpponentUser().getUsuario();
+                String perdedorBandofaccion = opponentFaction;
+
+                JOptionPane.showMessageDialog(this, 
+                    ganadorBandofaccion + " ha CAPTURADO la TIERRA de " + perdedorBandofaccion + "!\n¡" + ganadorBandofaccion + " ganan el juego!", 
+                    "¡Juego Terminado!", JOptionPane.INFORMATION_MESSAGE);
+                
+                terminarJuego("EARTH_CAPTURE", 5, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
+                return;
+            } else {
+                JOptionPane.showMessageDialog(this, "No puedes moverte a tu propia TIERRA o atacarla.", "Movimiento no válido", JOptionPane.PLAIN_MESSAGE);
+                fichaseleccionada = null;
+                return;
+            }
+        }
+        
+        // ATAQUE A UNA BOMBA
+        if (destino != null && destino.getRango() == 15) {
+            if (fichaseleccionada.getRango() == 3) { // Minero desactiva bomba
+                Colocareliminado(destino, Cambiartamano(destino.getIcono(), 46, 58));
+                fichas[fila][columna] = fichaseleccionada;
+                tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
+                fichas[filasalida][colsalida] = null;
+                tableroBotones[filasalida][colsalida].setIcon(null);
+            } else { // Otra ficha es eliminada por la bomba
+                Colocareliminado(fichaseleccionada, Cambiartamano(fichaseleccionada.getIcono(), 46, 58));
+                fichas[filasalida][colsalida] = null;
+                tableroBotones[filasalida][colsalida].setIcon(null);
+            }
+        // INICIAR BATALLA
+        } else if (destino != null && !destino.getTipo().equals(fichaseleccionada.getTipo())) {
+            ficha1 = fichaseleccionada;
+            ficha2 = destino;
+            filaficha1 = filasalida; 
+            colficha1 = colsalida;
+            filaficha2 = fila; 
+            colficha2 = columna;
+            Batalla(ficha1, ficha2);
+            Batalla = true;
+            return; // Detener ejecución hasta que la batalla termine
+        // MOVIMIENTO A CASILLA ALIDADA
+        } else if (destino != null && destino.getTipo().equals(fichaseleccionada.getTipo())) {
+            JOptionPane.showMessageDialog(this, "No puedes moverte hacia un aliado", "ERROR", JOptionPane.PLAIN_MESSAGE);
+            fichaseleccionada = null;
+            return;
+        // MOVIMIENTO A CASILLA VACÍA
+        } else {
+            fichas[fila][columna] = fichaseleccionada;
+            tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
+            fichas[filasalida][colsalida] = null;
+            tableroBotones[filasalida][colsalida].setIcon(null);
+        }
+
+        // --- FINALIZAR TURNO ---
+        turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
+        actualizarTitulo(); 
+
+        if (Logica.Cuentas.gameMode.equals("Classic")) {
+            ocultarFichas();
+        } else {
+            revelarFichas();
+        }
+        limpiarpintados();
+        fichaseleccionada = null;
+
+        // Verificar si el oponente tiene movimientos
+        if (!vermovimientos()) {
+            String ganadorNombreusuario = usuarioActual.getUsuario();
+            String ganadorBandofaccion = userFaction;
+            String perdedorNombreusuario = gameMenu.getOpponentUser().getUsuario();
+            String perdedorBandofaccion = opponentFaction;
+
+            JOptionPane.showMessageDialog(this, 
+                perdedorBandofaccion + " no tiene movimientos posibles.\n¡Fin del juego!", 
+                "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+            terminarJuego("NO_MOVES", -3, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
+        }
+    }
+}
 
     private void guardar() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 Ficha ficha = fichas[i][j];
-                if (ficha != null && !ficha.getTipo().equals(turno)) {
+                if (ficha != null && !ficha.getTipo().equals(userFaction)) {
                     guardariconos[i][j] = (ImageIcon) tableroBotones[i][j].getIcon();
                 } else {
-                    guardariconos[i][j] = null;
+                    guardariconos[i][j] = null; 
                 }
             }
         }
-
+    }
+     private void actualizarTitulo() {
+        this.setTitle("Stratego Marvel - Turno de: " + turno);
     }
 
-    private void ocultarFichas() {
+ private void ocultarFichas() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (guardariconos[i][j] != null) {
+                if (fichas[i][j] != null) { // Si hay una ficha en la casilla
+                    tableroBotones[i][j].setIcon(null); // Oculta el ícono
+                    tableroBotones[i][j].setText("?");   // Muestra un signo de interrogación
+                } else { // Si la casilla está vacía
                     tableroBotones[i][j].setIcon(null);
-                    tableroBotones[i][j].setText("?");
+                    tableroBotones[i][j].setText("");
                 }
             }
         }
     }
-
+    
     private void revelarFichas() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (guardariconos[i][j] != null) {
-                    tableroBotones[i][j].setIcon(Cambiartamano(guardariconos[i][j], 60, 63));
+                if (fichas[i][j] != null) { // Only show pieces if there is one
+                    tableroBotones[i][j].setIcon(Cambiartamano(fichas[i][j].getIcono(), 60, 63));
+                    tableroBotones[i][j].setText("");
+                } else {
+                    // If it's an empty spot, ensure no text or icon
+                    tableroBotones[i][j].setIcon(null);
                     tableroBotones[i][j].setText("");
                 }
             }
@@ -583,166 +754,99 @@ public class ProyectoStratego extends javax.swing.JFrame {
         return !fichadestino.getTipo().equals(moverficha.getTipo());
     }
 
+
    
-private void Batalla(Ficha ficha, Ficha ficha2) {
-    // fijamos correctamente quién es héroe y quién es villano
-    if (ficha.getTipo().equals("Heroes")) {
-        HeroeBatalla.setIcon(ficha.getIcono());
-        VillanoBatalla.setIcon(ficha2.getIcono());
-    } else {
-        HeroeBatalla.setIcon(ficha2.getIcono());
-        VillanoBatalla.setIcon(ficha.getIcono());
-    }
-
-    Fondopanelpelea.setVisible(true);
-    HeroeBatalla.setVisible(true);
-    VillanoBatalla.setVisible(true);
-    VS.setVisible(true);
-    conteobatalla.setVisible(true);
-    resultadoheroe.setVisible(false);
-    resultadovillano.setVisible(false);
-    continuar.setVisible(false);
-
-    // configuramos los iconos de "WINS"/"LOSE"
-    if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    } else if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
-    } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
-    } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    } else {
-        // empate
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    }
-
-    Batallaconteo = 3;
-    if (battleTimer != null && battleTimer.isRunning()) battleTimer.stop();
-    battleTimer = new Timer(1000, ev -> {
-        if (Batallaconteo > 0) {
-            conteobatalla.setText(String.valueOf(Batallaconteo));
-        } else if (Batallaconteo == 0) {
-            conteobatalla.setIcon(new ImageIcon(getClass().getResource(FIGHT)));
+private void Batalla(Ficha ficha1, Ficha ficha2) {
+        if (ficha1.getTipo().equals("Heroes")) {
+            HeroeBatalla.setIcon(Cambiartamano(ficha1.getIcono(), HeroeBatalla.getWidth(), HeroeBatalla.getHeight()));
+            VillanoBatalla.setIcon(Cambiartamano(ficha2.getIcono(), VillanoBatalla.getWidth(), VillanoBatalla.getHeight()));
         } else {
-            resultadoheroe.setVisible(true);
-            resultadovillano.setVisible(true);
-            continuar.setVisible(true);
-            ((Timer) ev.getSource()).stop();
+            HeroeBatalla.setIcon(Cambiartamano(ficha2.getIcono(), HeroeBatalla.getWidth(), HeroeBatalla.getHeight()));
+            VillanoBatalla.setIcon(Cambiartamano(ficha1.getIcono(), VillanoBatalla.getWidth(), VillanoBatalla.getHeight()));
         }
-        Batallaconteo--;
-    });
-    battleTimer.setInitialDelay(0);
-    battleTimer.start();
-}
 
+        Fondopanelpelea.setVisible(true);
+        HeroeBatalla.setVisible(true);
+        VillanoBatalla.setVisible(true);
+        VS.setVisible(true);
+        conteobatalla.setVisible(true);
+        resultadoheroe.setVisible(false);
+        resultadovillano.setVisible(false);
+        continuar.setVisible(false);
 
+        boolean ganaficha1 = false;
 
- 
-    private void Click(int fila, int columna) {
-    if (Batalla) return;
-    limpiarpintados();
-    if (fichaseleccionada != null && ((fila == 4 || fila == 5)
-            && (columna == 2 || columna == 3 || columna == 6 || columna == 7))) {
-        JOptionPane.showMessageDialog(this, "Esta es una zona prohibida", "Movimiento no valido", JOptionPane.PLAIN_MESSAGE);
-        fichaseleccionada = null;
-        return;
+        if (ficha1.getRango() == 1 && ficha2.getRango() == 10) {
+            ganaficha1 = true;
+        } 
+        else if (ficha1.getRango() == 3 && ficha2.getRango() == 15) {
+            ganaficha1 = true;
+        }
+        else if (ficha1.getRango() > ficha2.getRango()) {
+            ganaficha1 = true;
+        }
+
+        if (ganaficha1) {
+            if (ficha1.getTipo().equals("Heroes")) {
+                resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
+                resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            } else {
+                resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+                resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
+            }
+        } else if (ficha1.getRango() == ficha2.getRango()) {
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+        } else {
+            if (ficha1.getTipo().equals("Heroes")) {
+                resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+                resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
+            } else {
+                resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
+                resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            }
+        }
+
+        Batallaconteo = 3;
+        if (battleTimer != null && battleTimer.isRunning()) battleTimer.stop();
+        battleTimer = new Timer(1000, ev -> {
+            if (Batallaconteo > 0) {
+                conteobatalla.setText(String.valueOf(Batallaconteo));
+            } else if (Batallaconteo == 0) {
+                conteobatalla.setIcon(new ImageIcon(getClass().getResource(FIGHT)));
+                conteobatalla.setText("");
+            } else {
+                resultadoheroe.setVisible(true);
+                resultadovillano.setVisible(true);
+                continuar.setVisible(true);
+                ((Timer) ev.getSource()).stop();
+            }
+            Batallaconteo--;
+        });
+        battleTimer.setInitialDelay(0);
+        battleTimer.start();
     }
-    if (fichaseleccionada == null && fichas[fila][columna] != null) {
-        fichaseleccionada = fichas[fila][columna];
-        if (!fichaseleccionada.getTipo().equals(turno)) {
-            JOptionPane.showMessageDialog(this, "TURNO DEL RIVAL!!!!!", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        filasalida = fila;
-        colsalida = columna;
-        pintaropciones(filasalida, colsalida);
-        return;
-    }
-    if (fichaseleccionada != null) {
-        if (fichaseleccionada.getRango() == 15 || fichaseleccionada.getRango() == 20) {
-            JOptionPane.showMessageDialog(this, "Esta ficha no puede moverse", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        if (!movvalido(filasalida, colsalida, fila, columna)) {
-            JOptionPane.showMessageDialog(this, "Movimiento no válido", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        Ficha destino = fichas[fila][columna];
-        if (destino == null) {
-            fichas[fila][columna] = fichaseleccionada;
-            tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
-            guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
-        } else if (!destino.getTipo().equals(fichaseleccionada.getTipo())) {
+
+   
+   private void accionBotonRetirarse(java.awt.event.ActionEvent evt) {
+        int confirmacion = JOptionPane.showConfirmDialog(
+            this,
+            "¿Esta seguro de que desea retirarse del juego?\n" +
+            "Su oponente recibira 3 puntos y el juego terminara.",
+            "Confirmar Retiro",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            String ganadorBandofaccion = turno.equals("Heroes") ? "Villanos" : "Heroes";
+            String ganadorNombreusuario = (userFaction.equals(ganadorBandofaccion)) ? usuarioActual.getUsuario() : gameMenu.getOpponentUser().getUsuario();
+            String perdedorNombreusuario = (userFaction.equals(turno)) ? usuarioActual.getUsuario() : gameMenu.getOpponentUser().getUsuario();
+            String perdedorBandofaccion = userFaction;
             
-            if (destino.getRango() == 20) {
-                return;
-            }
-            if (destino.getRango() == 15) {
-                if (fichaseleccionada.getRango() == 3) {
-                    fichas[fila][columna] = fichaseleccionada;
-                    tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
-                    guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
-                    fichas[filasalida][colsalida] = null;
-                    tableroBotones[filasalida][colsalida].setIcon(null);
-                    guardariconos[filasalida][colsalida] = null;
-                } else {
-                    Colocareliminado(fichaseleccionada, Cambiartamano(fichaseleccionada.getIcono(), 46, 58));
-                    fichas[fila][columna] = null;
-                    fichas[filasalida][colsalida] = null;
-                    tableroBotones[fila][columna].setIcon(null);
-                    tableroBotones[filasalida][colsalida].setIcon(null);
-                    guardariconos[fila][columna] = guardariconos[filasalida][colsalida] = null;
-                }
-                turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
-                tituloheroes.setText("Turno: " + turno);
-                if (!vermovimientos()) {
-                    JOptionPane.showMessageDialog(this, turno + " no tiene movimientos posibles\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
-                }
-                revelarFichas();
-                guardar();
-                ocultarFichas();
-                fichaseleccionada = null;
-                return;
-            }
-            ficha1 = fichaseleccionada;
-            ficha2 = destino;
-            filaficha1 = filasalida; 
-            colficha1 = colsalida;
-            filaficha2 = fila; 
-            colficha2 = columna;
-            Batalla(ficha1, ficha2);
-            Batalla = true;
-            return;
-        } else {
-            JOptionPane.showMessageDialog(this, "No puedes moverte hacia un aliado", "ERROR", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        fichas[filasalida][colsalida] = null;
-        tableroBotones[filasalida][colsalida].setIcon(null);
-        guardariconos[filasalida][colsalida] = null;
-        turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
-        tituloheroes.setText("Turno: " + turno);
-        revelarFichas();
-        guardar();
-        ocultarFichas();
-        limpiarpintados();
-        fichaseleccionada = null;
-        if (contarFichasRestantes(turno) == 0) {
-            JOptionPane.showMessageDialog(this, "Todos los " + turno + " han sido eliminados\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+            terminarJuego("RETREAT", 3, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
         }
     }
-}
-
    
     private void inicializarFormacion(Ficha[] fichasBando, boolean esVillano) {
         int filaTierra = esVillano ? 9 : 0;
@@ -836,18 +940,19 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
             }
         }
     }
- public void endGame(String result, int finalScore) {
-        this.dispose(); 
+
+   public void terminarJuego(String tipoResultado, int puntuacionFinal, String nombreUsuarioGanador, String faccionGanadora, String nombreUsuarioPerdedor, String faccionPerdedora) {
+        this.dispose();
 
         if (gameMenu != null) {
-            gameMenu.gameFinished(result, finalScore); 
+            Logica.juego registroPartida = new Logica.juego(nombreUsuarioGanador, faccionGanadora, nombreUsuarioPerdedor, faccionPerdedora, tipoResultado, puntuacionFinal);
+            gameMenu.partidaTerminada(registroPartida, puntuacionFinal);
         } else {
-
-            JOptionPane.showMessageDialog(null, "Partida terminada: " + result + " con " + finalScore + " puntos.");
+            JOptionPane.showMessageDialog(null, "Partida terminada: " + tipoResultado + " con " + puntuacionFinal + " puntos.");
         }
     }
  
-    private int contarFichasRestantes(String turno) {
+private int contarFichasRestantes(String turno) {
         int contador = 0;
         for (int fila = 0; fila < 10; fila++) {
             for (int columna = 0; columna < 10; columna++) {
@@ -859,6 +964,8 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         }
         return contador;
     }
+
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -873,6 +980,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         VS = new javax.swing.JLabel();
         HeroeBatalla = new javax.swing.JLabel();
         Fondopanelpelea = new javax.swing.JLabel();
+        rendirse = new javax.swing.JButton();
         b3 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
         b4 = new javax.swing.JButton();
@@ -1099,6 +1207,17 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         getContentPane().add(VS, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 100, 80));
         getContentPane().add(HeroeBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 170, 150));
         getContentPane().add(Fondopanelpelea, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 1141, -1));
+
+        rendirse.setBackground(new java.awt.Color(0, 0, 0));
+        rendirse.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        rendirse.setForeground(new java.awt.Color(255, 255, 255));
+        rendirse.setText("Retirarse");
+        rendirse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rendirseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rendirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         b3.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         b3.setForeground(new java.awt.Color(204, 204, 0));
@@ -3395,77 +3514,81 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     }//GEN-LAST:event_b21ActionPerformed
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-                                                
-    
-    conteobatalla.setVisible(false);
+conteobatalla.setVisible(false);
     conteobatalla.setText("");
     conteobatalla.setIcon(null);
-
-    
     continuar.setVisible(false);
     Fondopanelpelea.setVisible(false);
     HeroeBatalla.setVisible(false);
     VillanoBatalla.setVisible(false);
     VS.setVisible(false);
-
-    
     resultadoheroe.setVisible(false);
     resultadovillano.setVisible(false);
 
-   
+    // Determinar el resultado de la batalla
     boolean ganaficha1 = false;
-    if ((ficha1.getRango() == 3 && ficha2.getRango() == 15) || (ficha1.getRango() != ficha2.getRango() && ficha1.getRango() > ficha2.getRango())) {
+    if (ficha1.getRango() == 1 && ficha2.getRango() == 10) { // Espía vs. Mariscal
+        ganaficha1 = true;
+    } else if (ficha1.getRango() > ficha2.getRango()) {
         ganaficha1 = true;
     }
 
-   
-    if (ficha1.getRango() == ficha2.getRango()) {
+    // Actualizar el tablero basado en el resultado
+    if (ficha1.getRango() == ficha2.getRango()) { // Empate
         Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
         Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
         fichas[filaficha1][colficha1] = null;
         fichas[filaficha2][colficha2] = null;
         tableroBotones[filaficha1][colficha1].setIcon(null);
         tableroBotones[filaficha2][colficha2].setIcon(null);
-        guardariconos[filaficha1][colficha1] = null;
-        guardariconos[filaficha2][colficha2] = null;
-    } else if (ganaficha1) {
+    } else if (ganaficha1) { // Gana Ficha 1
         Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
         fichas[filaficha1][colficha1] = null;
-        fichas[filaficha2][colficha2] = ficha1;
+        fichas[filaficha2][colficha2] = ficha1; // La ficha ganadora se mueve
         tableroBotones[filaficha1][colficha1].setIcon(null);
         tableroBotones[filaficha2][colficha2].setIcon(Cambiartamano(ficha1.getIcono(), 60, 63));
-        guardariconos[filaficha1][colficha1] = null;
-        guardariconos[filaficha2][colficha2] = Cambiartamano(ficha1.getIcono(), 60, 63);
-    } else {
+    } else { // Gana Ficha 2 (la defensora)
         Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
         fichas[filaficha1][colficha1] = null;
         tableroBotones[filaficha1][colficha1].setIcon(null);
-        guardariconos[filaficha1][colficha1] = null;
     }
 
-    if (turno.equals("Heroes")) {
-        turno = "Villanos";
-    } else {
-        turno = "Heroes";
-    }
-
+    // --- FINALIZAR TURNO POST-BATALLA ---
+    turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
+    actualizarTitulo();
     
-    guardar();
+    if (Cuentas.gameMode.equals("Classic")) {
+         ocultarFichas();
+    } else {
+        revelarFichas();
+    }
     
     limpiarpintados();
     fichaseleccionada = null;
     Batalla = false;
 
-    if (!vermovimientos() || contarFichasRestantes(turno) == 0) {
-        JOptionPane.showMessageDialog(
-            this,
-            turno + " no tiene movimientos posibles\nFin del juego.",
+    // Verificar condiciones de fin de juego
+    if (!vermovimientos()) {
+        String ganadorNombreusuario = usuarioActual.getUsuario();
+        String ganadorBandofaccion = userFaction;
+        String perdedorNombreusuario = gameMenu.getOpponentUser().getUsuario();
+        String perdedorBandofaccion = opponentFaction;
+
+        JOptionPane.showMessageDialog(this,
+            perdedorBandofaccion + " no tiene movimientos posibles\nFin del juego.",
             "Juego terminado",
-            JOptionPane.INFORMATION_MESSAGE
-        );
+            JOptionPane.INFORMATION_MESSAGE);
+        terminarJuego("NO_MOVES", -3, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
+    } else if (contarFichasRestantes(turno) == 0) {
+        String ganadorNombreusuario = turno.equals("Heroes") ? gameMenu.getOpponentUser().getUsuario() : usuarioActual.getUsuario();
+        String ganadorBandofaccion = turno.equals("Heroes") ? opponentFaction : userFaction;
+        String perdedorNombreusuario = turno.equals("Heroes") ? usuarioActual.getUsuario() : gameMenu.getOpponentUser().getUsuario();
+        String perdedorBandofaccion = turno;
+
+        JOptionPane.showMessageDialog(this, "Todos los " + perdedorBandofaccion + " han sido eliminados\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+        terminarJuego("ALL_PIECES_DESTROYED", 3, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
     }
-
-
+    
     }//GEN-LAST:event_continuarActionPerformed
 
     private void b91MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b91MouseEntered
@@ -3868,7 +3991,50 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     private void b100MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b100MouseEntered
        
     }//GEN-LAST:event_b100MouseEntered
-   
+
+    private void rendirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendirseActionPerformed
+      if (usuarioActual == null || gameMenu == null || gameMenu.getOpponentUser() == null) {
+        JOptionPane.showMessageDialog(this,
+            "Error: No se puede realizar esta acción porque la partida no se inició desde el menú principal.\n" +
+            "Por favor, inicie el juego a través de la ventana de Login.",
+            "Error de Partida",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+    }
+
+    int confirmacion = JOptionPane.showConfirmDialog(
+        this,
+        "¿Está seguro de que desea retirarse del juego?\n" +
+        "Su oponente ganará la partida y recibirá 3 puntos.",
+        "Confirmar Retiro",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.WARNING_MESSAGE
+    );
+
+    if (confirmacion == JOptionPane.YES_OPTION) {
+        
+        String ganadorBandofaccion;
+        String perdedorBandofaccion;
+        String ganadorNombreusuario;
+        String perdedorNombreusuario;
+
+        if (turno.equals(userFaction)) {
+            perdedorBandofaccion = userFaction;
+            perdedorNombreusuario = usuarioActual.getUsuario();
+            ganadorBandofaccion = opponentFaction;
+            ganadorNombreusuario = gameMenu.getOpponentUser().getUsuario();
+        } else {
+            perdedorBandofaccion = opponentFaction;
+            perdedorNombreusuario = gameMenu.getOpponentUser().getUsuario();
+            ganadorBandofaccion = userFaction;
+            ganadorNombreusuario = usuarioActual.getUsuario();
+        }
+        
+        terminarJuego("RETREAT", 3, ganadorNombreusuario, ganadorBandofaccion, perdedorNombreusuario, perdedorBandofaccion);
+    }
+    }//GEN-LAST:event_rendirseActionPerformed
+
+    
     private ImageIcon Cambiartamano(ImageIcon icono, int ancho, int alto) {
         Image imagen = icono.getImage();
         Image imgmod = imagen.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
@@ -3894,16 +4060,6 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new ProyectoStratego().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Doradofondo;
@@ -4053,6 +4209,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelheroes;
     private javax.swing.JPanel panelvillanos;
+    private javax.swing.JButton rendirse;
     private javax.swing.JLabel resultadoheroe;
     private javax.swing.JLabel resultadovillano;
     private javax.swing.JLabel tituloheroes;

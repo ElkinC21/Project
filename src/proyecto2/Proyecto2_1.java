@@ -14,7 +14,7 @@ private Cuentas sistemaCuentas;
         this.sistemaCuentas = new Cuentas(); 
         initComponents();
         setTitle("MENU PRINCIPAL");
-        setSize(750, 800);
+        setSize(700,920);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -33,6 +33,7 @@ public Proyecto2_1(Cuentas sistema) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Salir = new javax.swing.JButton();
         Crearcuenta = new javax.swing.JButton();
         Iniciosesion = new javax.swing.JButton();
@@ -41,9 +42,17 @@ public Proyecto2_1(Cuentas sistema) {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        Salir.setBackground(new java.awt.Color(153, 153, 153));
-        Salir.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
-        Salir.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(102, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Menu Principal");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(180, 230, 380, 170);
+
+        Salir.setBackground(new java.awt.Color(102, 102, 0));
+        Salir.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        Salir.setForeground(new java.awt.Color(0, 0, 0));
         Salir.setText("Salir");
         Salir.setActionCommand("");
         Salir.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -53,11 +62,11 @@ public Proyecto2_1(Cuentas sistema) {
             }
         });
         getContentPane().add(Salir);
-        Salir.setBounds(280, 480, 210, 50);
+        Salir.setBounds(270, 590, 210, 50);
 
-        Crearcuenta.setBackground(new java.awt.Color(153, 153, 153));
-        Crearcuenta.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
-        Crearcuenta.setForeground(new java.awt.Color(255, 255, 255));
+        Crearcuenta.setBackground(new java.awt.Color(102, 102, 0));
+        Crearcuenta.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        Crearcuenta.setForeground(new java.awt.Color(0, 0, 0));
         Crearcuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registro-24.png"))); // NOI18N
         Crearcuenta.setText("Crear cueenta");
         Crearcuenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -67,11 +76,11 @@ public Proyecto2_1(Cuentas sistema) {
             }
         });
         getContentPane().add(Crearcuenta);
-        Crearcuenta.setBounds(280, 390, 210, 50);
+        Crearcuenta.setBounds(270, 500, 210, 50);
 
-        Iniciosesion.setBackground(new java.awt.Color(153, 153, 153));
-        Iniciosesion.setFont(new java.awt.Font("Algerian", 1, 12)); // NOI18N
-        Iniciosesion.setForeground(new java.awt.Color(255, 255, 255));
+        Iniciosesion.setBackground(new java.awt.Color(102, 102, 0));
+        Iniciosesion.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        Iniciosesion.setForeground(new java.awt.Color(0, 0, 0));
         Iniciosesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registro-24.png"))); // NOI18N
         Iniciosesion.setText("Inicio sesion");
         Iniciosesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -81,11 +90,11 @@ public Proyecto2_1(Cuentas sistema) {
             }
         });
         getContentPane().add(Iniciosesion);
-        Iniciosesion.setBounds(280, 290, 210, 50);
+        Iniciosesion.setBounds(270, 400, 210, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stra.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bk1.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(-130, -30, 880, 900);
+        jLabel3.setBounds(0, 0, 750, 900);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +152,7 @@ System.exit(0);
     private javax.swing.JButton Crearcuenta;
     private javax.swing.JButton Iniciosesion;
     private javax.swing.JButton Salir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
