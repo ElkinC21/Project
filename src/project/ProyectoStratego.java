@@ -1,7 +1,10 @@
 package project;
 
 import java.awt.Image;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 import javax.swing.JButton;
 import proyecto2.Juego;
@@ -10,11 +13,11 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class ProyectoStratego extends javax.swing.JFrame {
+<<<<<<< Updated upstream
     private Juego gameMenu;
   private boolean Batalla=false;
   private int Batallaconteo;
@@ -27,6 +30,20 @@ public class ProyectoStratego extends javax.swing.JFrame {
  private int colficha2;
   
   private javax.swing.border.Border[][] Borders = new javax.swing.border.Border[10][10];
+=======
+
+    private boolean Batalla = false;
+    private int Batallaconteo;
+    private Timer battleTimer;
+    private Ficha ficha1;
+    private Ficha ficha2;
+    private int filaficha1;
+    private int filaficha2;
+    private int colficha1;
+    private int colficha2;
+
+    private javax.swing.border.Border[][] Borders = new javax.swing.border.Border[10][10];
+>>>>>>> Stashed changes
     private Ficha fichaseleccionada = null;
     private int filasalida, colsalida;
     private String turno = "Heroes";
@@ -40,10 +57,10 @@ public class ProyectoStratego extends javax.swing.JFrame {
     private JLabel heroeseliminados[];
 
     private ImageIcon[][] guardariconos = new ImageIcon[10][10];
-    
-    String WINS="/project/WINS2.png";
-    String FIGHT="/project/FIGHT.png";
-    String LOSE="/project/LOSE2.png";
+    ImageIcon bombaIcon = new ImageIcon(getClass().getResource("/project/bomba.png"));
+    String WINS = "/project/WINS2.png";
+    String FIGHT = "/project/FIGHT.png";
+    String LOSE = "/project/LOSE2.png";
     String beast = "/project/BEAST.png";
     String blackWidow = "/project/BLACKWIDOW.png";
     String blade = "/project/BLADE.png";
@@ -115,13 +132,10 @@ public class ProyectoStratego extends javax.swing.JFrame {
     String pumpkinBomb1 = "/project/PUMPKINBOMB.png";
     String tierraVillanos = "/project/TIERRAVILLANOS.png";
 
-   
-        
-    
-
     public ProyectoStratego() {
-       
+
         initComponents();
+<<<<<<< Updated upstream
         jLabel5.setIcon(new ImageIcon(getClass().getResource("/project/tablerofinal_1.png")));
       Doradofondo.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
       Doradofondoheroes.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
@@ -131,6 +145,17 @@ public class ProyectoStratego extends javax.swing.JFrame {
       tituloheroes.setIcon(new ImageIcon(getClass().getResource("/project/HEROES-ELIMINADOS_230X25.png")));
     
         
+=======
+
+        jLabel5.setIcon(new ImageIcon(getClass().getResource("/project/tablerofinal_1.png")));
+        Doradofondo.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
+        Doradofondoheroes.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
+        VS.setIcon(new ImageIcon(getClass().getResource("/project/VS_transparente_100x80.png")));
+        Fondopanelpelea.setIcon(new ImageIcon(getClass().getResource("/project/resized_image_750x470.png")));
+        villano1.setIcon(new ImageIcon(getClass().getResource("/project/VILLANOS-ELIMINADOS_230X25_1.png")));
+        tituloheroes.setIcon(new ImageIcon(getClass().getResource("/project/HEROES-ELIMINADOS_230X25.png")));
+
+>>>>>>> Stashed changes
         continuar.setVisible(false);
         Fondopanelpelea.setVisible(false);
         HeroeBatalla.setVisible(false);
@@ -251,8 +276,9 @@ public class ProyectoStratego extends javax.swing.JFrame {
         ValorFichas();
         inicializarFormacion(villanos, true);
         inicializarFormacion(heroes, false);
-        guardar();
-        ocultarFichas();
+        guardar();        // guardo las fichas del rival para ocultarlas
+        ocultarFichas();  // las oculto
+        revelarFichas();
 
     }
     
@@ -495,33 +521,39 @@ public class ProyectoStratego extends javax.swing.JFrame {
     private void guardar() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                Ficha ficha = fichas[i][j];
-                if (ficha != null && !ficha.getTipo().equals(turno)) {
+                Ficha f = fichas[i][j];
+
+                if (f != null && !f.getTipo().equals(turno)) {
                     guardariconos[i][j] = (ImageIcon) tableroBotones[i][j].getIcon();
                 } else {
                     guardariconos[i][j] = null;
                 }
             }
         }
-
     }
 
-    private void ocultarFichas() {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (guardariconos[i][j] != null) {
-                    tableroBotones[i][j].setIcon(null);
-                    tableroBotones[i][j].setText("?");
-                }
+   private void ocultarFichas() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            if (guardariconos[i][j] != null) {
+                // casilla con ficha rival: ocultar icono y poner “?”
+                tableroBotones[i][j].setIcon(null);
+                tableroBotones[i][j].setText("?");
+            } else {
+                // casilla sin ficha rival: asegurarnos de que no quede ni icono ni “?”
+                tableroBotones[i][j].setText("");
             }
         }
     }
+}
 
     private void revelarFichas() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (guardariconos[i][j] != null) {
-                    tableroBotones[i][j].setIcon(Cambiartamano(guardariconos[i][j], 60, 63));
+                Ficha ficha = fichas[i][j];
+                if (ficha != null && ficha.getTipo().equals(turno)) {
+
+                    tableroBotones[i][j].setIcon(Cambiartamano(ficha.getIcono(), 60, 63));
                     tableroBotones[i][j].setText("");
                 }
             }
@@ -585,167 +617,178 @@ public class ProyectoStratego extends javax.swing.JFrame {
         return !fichadestino.getTipo().equals(moverficha.getTipo());
     }
 
-   
-private void Batalla(Ficha ficha, Ficha ficha2) {
-    // fijamos correctamente quién es héroe y quién es villano
-    if (ficha.getTipo().equals("Heroes")) {
-        HeroeBatalla.setIcon(ficha.getIcono());
-        VillanoBatalla.setIcon(ficha2.getIcono());
-    } else {
-        HeroeBatalla.setIcon(ficha2.getIcono());
-        VillanoBatalla.setIcon(ficha.getIcono());
-    }
-
-    Fondopanelpelea.setVisible(true);
-    HeroeBatalla.setVisible(true);
-    VillanoBatalla.setVisible(true);
-    VS.setVisible(true);
-    conteobatalla.setVisible(true);
-    resultadoheroe.setVisible(false);
-    resultadovillano.setVisible(false);
-    continuar.setVisible(false);
-
-    // configuramos los iconos de "WINS"/"LOSE"
-    if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    } else if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
-    } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
-    } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    } else {
-        // empate
-        resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-        resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
-    }
-
-    Batallaconteo = 3;
-    if (battleTimer != null && battleTimer.isRunning()) battleTimer.stop();
-    battleTimer = new Timer(1000, ev -> {
-        if (Batallaconteo > 0) {
-            conteobatalla.setText(String.valueOf(Batallaconteo));
-        } else if (Batallaconteo == 0) {
-            conteobatalla.setIcon(new ImageIcon(getClass().getResource(FIGHT)));
+    private void Batalla(Ficha ficha, Ficha ficha2) {
+       
+        if (ficha.getTipo().equals("Heroes")) {
+            HeroeBatalla.setIcon(ficha.getIcono());
+            VillanoBatalla.setIcon(ficha2.getIcono());
         } else {
-            resultadoheroe.setVisible(true);
-            resultadovillano.setVisible(true);
-            continuar.setVisible(true);
-            ((Timer) ev.getSource()).stop();
+            HeroeBatalla.setIcon(ficha2.getIcono());
+            VillanoBatalla.setIcon(ficha.getIcono());
         }
-        Batallaconteo--;
-    });
-    battleTimer.setInitialDelay(0);
-    battleTimer.start();
-}
 
+        Fondopanelpelea.setVisible(true);
+        HeroeBatalla.setVisible(true);
+        VillanoBatalla.setVisible(true);
+        VS.setVisible(true);
+        conteobatalla.setVisible(true);
+        resultadoheroe.setVisible(false);
+        resultadovillano.setVisible(false);
+        continuar.setVisible(false);
 
+        // configuramos los iconos de "WINS"/"LOSE"
+        if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+        } else if ((ficha.getRango() > ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
+        } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Heroes")) {
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(WINS)));
+        } else if ((ficha.getRango() < ficha2.getRango()) && ficha.getTipo().equals("Villanos")) {
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(WINS)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+        } else {
+            // empate
+            resultadoheroe.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+            resultadovillano.setIcon(new ImageIcon(getClass().getResource(LOSE)));
+        }
 
- 
-    private void Click(int fila, int columna) {
-    if (Batalla) return;
-    limpiarpintados();
-    if (fichaseleccionada != null && ((fila == 4 || fila == 5)
-            && (columna == 2 || columna == 3 || columna == 6 || columna == 7))) {
-        JOptionPane.showMessageDialog(this, "Esta es una zona prohibida", "Movimiento no valido", JOptionPane.PLAIN_MESSAGE);
-        fichaseleccionada = null;
-        return;
-    }
-    if (fichaseleccionada == null && fichas[fila][columna] != null) {
-        fichaseleccionada = fichas[fila][columna];
-        if (!fichaseleccionada.getTipo().equals(turno)) {
-            JOptionPane.showMessageDialog(this, "TURNO DEL RIVAL!!!!!", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
+        Batallaconteo = 3;
+        if (battleTimer != null && battleTimer.isRunning()) {
+            battleTimer.stop();
         }
-        filasalida = fila;
-        colsalida = columna;
-        pintaropciones(filasalida, colsalida);
-        return;
-    }
-    if (fichaseleccionada != null) {
-        if (fichaseleccionada.getRango() == 15 || fichaseleccionada.getRango() == 20) {
-            JOptionPane.showMessageDialog(this, "Esta ficha no puede moverse", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        if (!movvalido(filasalida, colsalida, fila, columna)) {
-            JOptionPane.showMessageDialog(this, "Movimiento no válido", "", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
-            return;
-        }
-        Ficha destino = fichas[fila][columna];
-        if (destino == null) {
-            fichas[fila][columna] = fichaseleccionada;
-            tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
-            guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
-        } else if (!destino.getTipo().equals(fichaseleccionada.getTipo())) {
-            
-            if (destino.getRango() == 20) {
-                return;
+        battleTimer = new Timer(1000, ev -> {
+            if (Batallaconteo > 0) {
+                conteobatalla.setText(String.valueOf(Batallaconteo));
+            } else if (Batallaconteo == 0) {
+                conteobatalla.setIcon(new ImageIcon(getClass().getResource(FIGHT)));
+            } else {
+                resultadoheroe.setVisible(true);
+                resultadovillano.setVisible(true);
+                continuar.setVisible(true);
+                ((Timer) ev.getSource()).stop();
             }
-            if (destino.getRango() == 15) {
-                if (fichaseleccionada.getRango() == 3) {
-                    fichas[fila][columna] = fichaseleccionada;
-                    tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
-                    guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
-                    fichas[filasalida][colsalida] = null;
-                    tableroBotones[filasalida][colsalida].setIcon(null);
-                    guardariconos[filasalida][colsalida] = null;
-                } else {
-                    Colocareliminado(fichaseleccionada, Cambiartamano(fichaseleccionada.getIcono(), 46, 58));
-                    fichas[fila][columna] = null;
-                    fichas[filasalida][colsalida] = null;
-                    tableroBotones[fila][columna].setIcon(null);
-                    tableroBotones[filasalida][colsalida].setIcon(null);
-                    guardariconos[fila][columna] = guardariconos[filasalida][colsalida] = null;
-                }
-                turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
-                tituloheroes.setText("Turno: " + turno);
-                if (!vermovimientos()) {
-                    JOptionPane.showMessageDialog(this, turno + " no tiene movimientos posibles\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
-                }
-                revelarFichas();
-                guardar();
-                ocultarFichas();
+            Batallaconteo--;
+        });
+        battleTimer.setInitialDelay(0);
+        battleTimer.start();
+    }
+
+    private void Click(int fila, int columna) {
+        if (Batalla) {
+            return;
+        }
+        limpiarpintados();
+        if (fichaseleccionada != null && ((fila == 4 || fila == 5)
+                && (columna == 2 || columna == 3 || columna == 6 || columna == 7))) {
+            JOptionPane.showMessageDialog(this, "Esta es una zona prohibida", "Movimiento no valido", JOptionPane.PLAIN_MESSAGE);
+            fichaseleccionada = null;
+            return;
+        }
+        if (fichaseleccionada == null && fichas[fila][columna] != null) {
+            fichaseleccionada = fichas[fila][columna];
+            if (!fichaseleccionada.getTipo().equals(turno)) {
+                JOptionPane.showMessageDialog(this, "TURNO DEL RIVAL!!!!!", "", JOptionPane.PLAIN_MESSAGE);
                 fichaseleccionada = null;
                 return;
             }
-            ficha1 = fichaseleccionada;
-            ficha2 = destino;
-            filaficha1 = filasalida; 
-            colficha1 = colsalida;
-            filaficha2 = fila; 
-            colficha2 = columna;
-            Batalla(ficha1, ficha2);
-            Batalla = true;
-            return;
-        } else {
-            JOptionPane.showMessageDialog(this, "No puedes moverte hacia un aliado", "ERROR", JOptionPane.PLAIN_MESSAGE);
-            fichaseleccionada = null;
+            filasalida = fila;
+            colsalida = columna;
+            pintaropciones(filasalida, colsalida);
             return;
         }
-        fichas[filasalida][colsalida] = null;
-        tableroBotones[filasalida][colsalida].setIcon(null);
-        guardariconos[filasalida][colsalida] = null;
-        turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
-        tituloheroes.setText("Turno: " + turno);
-        revelarFichas();
-        guardar();
-        ocultarFichas();
-        limpiarpintados();
-        fichaseleccionada = null;
-        if (contarFichasRestantes(turno) == 0) {
-            JOptionPane.showMessageDialog(this, "Todos los " + turno + " han sido eliminados\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+        if (fichaseleccionada != null) {
+            if (fichaseleccionada.getRango() == 15 || fichaseleccionada.getRango() == 20) {
+                JOptionPane.showMessageDialog(this, "Esta ficha no puede moverse", "", JOptionPane.PLAIN_MESSAGE);
+                fichaseleccionada = null;
+                return;
+            }
+            if (!movvalido(filasalida, colsalida, fila, columna)) {
+                JOptionPane.showMessageDialog(this, "Movimiento no válido", "", JOptionPane.PLAIN_MESSAGE);
+                fichaseleccionada = null;
+                return;
+            }
+            Ficha destino = fichas[fila][columna];
+            if (destino == null) {
+                fichas[fila][columna] = fichaseleccionada;
+                tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
+                guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
+            } else if (!destino.getTipo().equals(fichaseleccionada.getTipo())) {
+
+                if (destino.getRango() == 20) {
+                    return;
+                }
+                if (destino.getRango() == 15) {
+                    if (fichaseleccionada.getRango() == 3) {
+                        fichas[fila][columna] = fichaseleccionada;
+                        tableroBotones[fila][columna].setIcon(Cambiartamano(fichaseleccionada.getIcono(), 60, 63));
+                        guardariconos[fila][columna] = Cambiartamano(fichaseleccionada.getIcono(), 60, 63);
+                        fichas[filasalida][colsalida] = null;
+                        tableroBotones[filasalida][colsalida].setIcon(null);
+                        guardariconos[filasalida][colsalida] = null;
+                    } else {
+                        
+                        JOptionPane.showMessageDialog(
+                                this,
+                                fichaseleccionada.getNombre() + " ha sido eliminado por una " + destino.getNombre(),
+                                "BOOOOOM",
+                                JOptionPane.INFORMATION_MESSAGE,
+                                bombaIcon
+                        );
+                        Colocareliminado(fichaseleccionada, Cambiartamano(fichaseleccionada.getIcono(), 46, 58));
+                        fichas[fila][columna] = null;
+                        fichas[filasalida][colsalida] = null;
+                        tableroBotones[fila][columna].setIcon(null);
+                        tableroBotones[filasalida][colsalida].setIcon(null);
+                        guardariconos[fila][columna] = guardariconos[filasalida][colsalida] = null;
+                    }
+                    turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
+                    tituloheroes.setText("Turno: " + turno);
+                    guardar();      
+                    ocultarFichas(); 
+                    revelarFichas();  
+                    if (!vermovimientos()) {
+                        JOptionPane.showMessageDialog(this, turno + " no tiene movimientos posibles\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    revelarFichas();
+                    guardar();
+                    ocultarFichas();
+                    fichaseleccionada = null;
+                    return;
+                }
+                ficha1 = fichaseleccionada;
+                ficha2 = destino;
+                filaficha1 = filasalida;
+                colficha1 = colsalida;
+                filaficha2 = fila;
+                colficha2 = columna;
+                Batalla(ficha1, ficha2);
+                Batalla = true;
+                return;
+            } else {
+                JOptionPane.showMessageDialog(this, "No puedes moverte hacia un aliado", "ERROR", JOptionPane.PLAIN_MESSAGE);
+                fichaseleccionada = null;
+                return;
+            }
+            fichas[filasalida][colsalida] = null;
+            tableroBotones[filasalida][colsalida].setIcon(null);
+            guardariconos[filasalida][colsalida] = null;
+            turno = turno.equals("Heroes") ? "Villanos" : "Heroes";
+            tituloheroes.setText("Turno: " + turno);
+            guardar();        // actualiza qué fichas del rival hay que ocultar
+            ocultarFichas();  // oculta sólo las del rival
+            revelarFichas();  // revela sólo las tuyas
+
+            limpiarpintados();
+            fichaseleccionada = null;
+            if (contarFichasRestantes(turno) == 0) {
+                JOptionPane.showMessageDialog(this, "Todos los " + turno + " han sido eliminados\nFin del juego.", "Juego terminado", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
-}
 
-   
     private void inicializarFormacion(Ficha[] fichasBando, boolean esVillano) {
         int filaTierra = esVillano ? 9 : 0;
         int colTierra;
@@ -861,6 +904,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         }
         return contador;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -3397,54 +3441,26 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     }//GEN-LAST:event_b21ActionPerformed
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-                                                
-    
-    conteobatalla.setVisible(false);
-    conteobatalla.setText("");
-    conteobatalla.setIcon(null);
 
-    
-    continuar.setVisible(false);
-    Fondopanelpelea.setVisible(false);
-    HeroeBatalla.setVisible(false);
-    VillanoBatalla.setVisible(false);
-    VS.setVisible(false);
+        conteobatalla.setVisible(false);
+        conteobatalla.setText("");
+        conteobatalla.setIcon(null);
 
-    
-    resultadoheroe.setVisible(false);
-    resultadovillano.setVisible(false);
+        continuar.setVisible(false);
+        Fondopanelpelea.setVisible(false);
+        HeroeBatalla.setVisible(false);
+        VillanoBatalla.setVisible(false);
+        VS.setVisible(false);
 
-   
-    boolean ganaficha1 = false;
-    if ((ficha1.getRango() == 3 && ficha2.getRango() == 15) || (ficha1.getRango() != ficha2.getRango() && ficha1.getRango() > ficha2.getRango())) {
-        ganaficha1 = true;
-    }
+        resultadoheroe.setVisible(false);
+        resultadovillano.setVisible(false);
 
-   
-    if (ficha1.getRango() == ficha2.getRango()) {
-        Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
-        Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
-        fichas[filaficha1][colficha1] = null;
-        fichas[filaficha2][colficha2] = null;
-        tableroBotones[filaficha1][colficha1].setIcon(null);
-        tableroBotones[filaficha2][colficha2].setIcon(null);
-        guardariconos[filaficha1][colficha1] = null;
-        guardariconos[filaficha2][colficha2] = null;
-    } else if (ganaficha1) {
-        Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
-        fichas[filaficha1][colficha1] = null;
-        fichas[filaficha2][colficha2] = ficha1;
-        tableroBotones[filaficha1][colficha1].setIcon(null);
-        tableroBotones[filaficha2][colficha2].setIcon(Cambiartamano(ficha1.getIcono(), 60, 63));
-        guardariconos[filaficha1][colficha1] = null;
-        guardariconos[filaficha2][colficha2] = Cambiartamano(ficha1.getIcono(), 60, 63);
-    } else {
-        Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
-        fichas[filaficha1][colficha1] = null;
-        tableroBotones[filaficha1][colficha1].setIcon(null);
-        guardariconos[filaficha1][colficha1] = null;
-    }
+        boolean ganaficha1 = false;
+        if ((ficha1.getRango() == 3 && ficha2.getRango() == 15) || (ficha1.getRango() != ficha2.getRango() && ficha1.getRango() > ficha2.getRango())) {
+            ganaficha1 = true;
+        }
 
+<<<<<<< Updated upstream
     if (turno.equals("Heroes")) {
         turno = "Villanos";
     } else {
@@ -3466,411 +3482,461 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
             JOptionPane.INFORMATION_MESSAGE
         );
     }
+=======
+        if (ficha1.getRango() == ficha2.getRango()) {
+            Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
+            Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
+            fichas[filaficha1][colficha1] = null;
+            fichas[filaficha2][colficha2] = null;
+            tableroBotones[filaficha1][colficha1].setIcon(null);
+            tableroBotones[filaficha2][colficha2].setIcon(null);
+            guardariconos[filaficha1][colficha1] = null;
+            guardariconos[filaficha2][colficha2] = null;
+        } else if (ganaficha1) {
+            Colocareliminado(ficha2, Cambiartamano(ficha2.getIcono(), 46, 58));
+            fichas[filaficha1][colficha1] = null;
+            fichas[filaficha2][colficha2] = ficha1;
+            tableroBotones[filaficha1][colficha1].setIcon(null);
+            tableroBotones[filaficha2][colficha2].setIcon(Cambiartamano(ficha1.getIcono(), 60, 63));
+            guardariconos[filaficha1][colficha1] = null;
+            guardariconos[filaficha2][colficha2] = Cambiartamano(ficha1.getIcono(), 60, 63);
+        } else {
+            Colocareliminado(ficha1, Cambiartamano(ficha1.getIcono(), 46, 58));
+            fichas[filaficha1][colficha1] = null;
+            tableroBotones[filaficha1][colficha1].setIcon(null);
+            guardariconos[filaficha1][colficha1] = null;
+        }
+
+        // cambia el turno sin usar operador ternario
+        if (turno.equals("Heroes")) {
+            turno = "Villanos";
+        } else {
+            turno = "Heroes";
+        }
+
+        // refresca la vista del tablero
+        limpiarpintados();
+        fichaseleccionada = null;
+        Batalla = false;
+        guardar();
+        ocultarFichas();
+        revelarFichas();
+
+        // comprueba si el siguiente jugador tiene movimientos
+        if (!vermovimientos() || contarFichasRestantes(turno) == 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    turno + " no tiene movimientos posibles\nFin del juego.",
+                    "Juego terminado",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+>>>>>>> Stashed changes
 
 
     }//GEN-LAST:event_continuarActionPerformed
 
     private void b91MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b91MouseEntered
-  
+
     }//GEN-LAST:event_b91MouseEntered
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
-      
+
     }//GEN-LAST:event_b1MouseEntered
 
     private void b2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseEntered
-    
+
     }//GEN-LAST:event_b2MouseEntered
 
     private void b3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseEntered
-         
+
     }//GEN-LAST:event_b3MouseEntered
 
     private void b4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseEntered
-       
+
     }//GEN-LAST:event_b4MouseEntered
 
     private void b5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseEntered
-    
+
     }//GEN-LAST:event_b5MouseEntered
 
     private void b6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseEntered
-        
+
     }//GEN-LAST:event_b6MouseEntered
 
     private void b7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseEntered
-      
+
     }//GEN-LAST:event_b7MouseEntered
 
     private void b8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseEntered
-     
+
     }//GEN-LAST:event_b8MouseEntered
 
     private void b9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseEntered
-       
+
     }//GEN-LAST:event_b9MouseEntered
 
     private void b10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b10MouseEntered
-       
+
     }//GEN-LAST:event_b10MouseEntered
 
     private void b11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b11MouseEntered
-        
+
     }//GEN-LAST:event_b11MouseEntered
 
     private void b12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b12MouseEntered
-     
+
     }//GEN-LAST:event_b12MouseEntered
 
     private void b13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b13MouseEntered
-      
+
     }//GEN-LAST:event_b13MouseEntered
 
     private void b14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b14MouseEntered
-      
+
     }//GEN-LAST:event_b14MouseEntered
 
     private void b15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b15MouseEntered
-    
+
     }//GEN-LAST:event_b15MouseEntered
 
     private void b16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b16MouseEntered
-        
+
     }//GEN-LAST:event_b16MouseEntered
 
     private void b17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b17MouseEntered
-     
+
     }//GEN-LAST:event_b17MouseEntered
 
     private void b18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b18MouseEntered
-      
+
     }//GEN-LAST:event_b18MouseEntered
 
     private void b19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b19MouseEntered
-    
+
     }//GEN-LAST:event_b19MouseEntered
 
     private void b20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b20MouseEntered
- 
+
     }//GEN-LAST:event_b20MouseEntered
 
     private void b21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b21MouseEntered
-       
+
     }//GEN-LAST:event_b21MouseEntered
 
     private void b22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b22MouseEntered
-     
+
     }//GEN-LAST:event_b22MouseEntered
 
     private void b23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b23MouseEntered
-   
+
     }//GEN-LAST:event_b23MouseEntered
 
     private void b24MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b24MouseEntered
-    
+
     }//GEN-LAST:event_b24MouseEntered
 
     private void b25MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b25MouseEntered
-       
+
     }//GEN-LAST:event_b25MouseEntered
 
     private void b26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b26MouseEntered
-     
+
     }//GEN-LAST:event_b26MouseEntered
 
     private void b27MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b27MouseEntered
-      
+
     }//GEN-LAST:event_b27MouseEntered
 
     private void b28MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b28MouseEntered
-   
+
     }//GEN-LAST:event_b28MouseEntered
 
     private void b29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b29MouseClicked
-      
+
     }//GEN-LAST:event_b29MouseClicked
 
     private void b29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b29MouseEntered
-    
+
     }//GEN-LAST:event_b29MouseEntered
 
     private void b30MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b30MouseEntered
-   
+
     }//GEN-LAST:event_b30MouseEntered
 
     private void b31MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b31MouseEntered
-      
+
     }//GEN-LAST:event_b31MouseEntered
 
     private void b32MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b32MouseEntered
-          
+
     }//GEN-LAST:event_b32MouseEntered
 
     private void b33MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b33MouseEntered
-          
+
     }//GEN-LAST:event_b33MouseEntered
 
     private void b34MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b34MouseEntered
-        
+
     }//GEN-LAST:event_b34MouseEntered
 
     private void b35MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b35MouseEntered
-        
+
     }//GEN-LAST:event_b35MouseEntered
 
     private void b36MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b36MouseEntered
-        
+
     }//GEN-LAST:event_b36MouseEntered
 
     private void b37MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b37MouseEntered
-        
+
     }//GEN-LAST:event_b37MouseEntered
 
     private void b38MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b38MouseEntered
-        
+
     }//GEN-LAST:event_b38MouseEntered
 
     private void b39MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b39MouseEntered
-       
+
     }//GEN-LAST:event_b39MouseEntered
 
     private void b40MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b40MouseEntered
-       
+
     }//GEN-LAST:event_b40MouseEntered
 
     private void b42MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b42MouseEntered
-         
+
     }//GEN-LAST:event_b42MouseEntered
 
     private void b43MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b43MouseEntered
-   
+
     }//GEN-LAST:event_b43MouseEntered
 
     private void b44MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b44MouseEntered
-     
+
     }//GEN-LAST:event_b44MouseEntered
 
     private void b45MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b45MouseEntered
-   
+
     }//GEN-LAST:event_b45MouseEntered
 
     private void b46MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b46MouseEntered
-   
+
     }//GEN-LAST:event_b46MouseEntered
 
     private void b47MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b47MouseEntered
-     
+
     }//GEN-LAST:event_b47MouseEntered
 
     private void b48MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b48MouseEntered
-     
+
     }//GEN-LAST:event_b48MouseEntered
 
     private void b49MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b49MouseEntered
-   
+
     }//GEN-LAST:event_b49MouseEntered
 
     private void b50MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b50MouseEntered
-      
+
     }//GEN-LAST:event_b50MouseEntered
 
     private void b51MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b51MouseEntered
-  
+
     }//GEN-LAST:event_b51MouseEntered
 
     private void b52MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b52MouseEntered
-      
+
     }//GEN-LAST:event_b52MouseEntered
 
     private void b53MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b53MouseEntered
-     
+
     }//GEN-LAST:event_b53MouseEntered
 
     private void b54MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b54MouseEntered
-     
+
     }//GEN-LAST:event_b54MouseEntered
 
     private void b55MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b55MouseEntered
-     
+
     }//GEN-LAST:event_b55MouseEntered
 
     private void b56MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b56MouseEntered
-       
+
     }//GEN-LAST:event_b56MouseEntered
 
     private void b57MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b57MouseEntered
-    
+
     }//GEN-LAST:event_b57MouseEntered
 
     private void b58MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b58MouseEntered
-     
+
     }//GEN-LAST:event_b58MouseEntered
 
     private void b59MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b59MouseEntered
-       
+
     }//GEN-LAST:event_b59MouseEntered
 
     private void b60MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b60MouseEntered
-       
+
     }//GEN-LAST:event_b60MouseEntered
 
     private void b61MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b61MouseEntered
-     
+
     }//GEN-LAST:event_b61MouseEntered
 
     private void b62MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b62MouseEntered
-        
+
     }//GEN-LAST:event_b62MouseEntered
 
     private void b63MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b63MouseEntered
-      
+
     }//GEN-LAST:event_b63MouseEntered
 
     private void b64MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b64MouseEntered
-      
+
     }//GEN-LAST:event_b64MouseEntered
 
     private void b65MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b65MouseEntered
-     
+
     }//GEN-LAST:event_b65MouseEntered
 
     private void b66MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b66MouseEntered
-     
+
     }//GEN-LAST:event_b66MouseEntered
 
     private void b67MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b67MouseEntered
-    
+
     }//GEN-LAST:event_b67MouseEntered
 
     private void b68MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b68MouseEntered
-      
+
     }//GEN-LAST:event_b68MouseEntered
 
     private void b69MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b69MouseEntered
-       
+
     }//GEN-LAST:event_b69MouseEntered
 
     private void b70MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b70MouseEntered
-      
+
     }//GEN-LAST:event_b70MouseEntered
 
     private void b71MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b71MouseEntered
-      
+
     }//GEN-LAST:event_b71MouseEntered
 
     private void b72MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b72MouseEntered
-     
+
     }//GEN-LAST:event_b72MouseEntered
 
     private void b73MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b73MouseEntered
-       
+
     }//GEN-LAST:event_b73MouseEntered
 
     private void b74MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b74MouseEntered
-  
+
     }//GEN-LAST:event_b74MouseEntered
 
     private void b75MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b75MouseEntered
-        
+
     }//GEN-LAST:event_b75MouseEntered
 
     private void b76MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b76MouseEntered
-         
+
     }//GEN-LAST:event_b76MouseEntered
 
     private void b77MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b77MouseEntered
-     
+
     }//GEN-LAST:event_b77MouseEntered
 
     private void b78MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b78MouseEntered
-        
+
     }//GEN-LAST:event_b78MouseEntered
 
     private void b79MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b79MouseEntered
-    
+
     }//GEN-LAST:event_b79MouseEntered
 
     private void b80MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b80MouseEntered
-       
+
     }//GEN-LAST:event_b80MouseEntered
 
     private void b82MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b82MouseEntered
-       
+
     }//GEN-LAST:event_b82MouseEntered
 
     private void b83MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b83MouseEntered
-      
+
     }//GEN-LAST:event_b83MouseEntered
 
     private void b84MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b84MouseEntered
-      
+
     }//GEN-LAST:event_b84MouseEntered
 
     private void b85MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b85MouseEntered
-     
+
     }//GEN-LAST:event_b85MouseEntered
 
     private void b86MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b86MouseEntered
-      
+
     }//GEN-LAST:event_b86MouseEntered
 
     private void b87MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b87MouseEntered
-        
+
     }//GEN-LAST:event_b87MouseEntered
 
     private void b88MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b88MouseEntered
-         
+
     }//GEN-LAST:event_b88MouseEntered
 
     private void b89MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b89MouseEntered
-       
+
     }//GEN-LAST:event_b89MouseEntered
 
     private void b90MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b90MouseEntered
-        
-    
+
+
     }//GEN-LAST:event_b90MouseEntered
 
     private void b92MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b92MouseEntered
-       
+
     }//GEN-LAST:event_b92MouseEntered
 
     private void b93MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b93MouseEntered
-        
+
     }//GEN-LAST:event_b93MouseEntered
 
     private void b94MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b94MouseEntered
-         
+
     }//GEN-LAST:event_b94MouseEntered
 
     private void b95MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b95MouseEntered
-         
+
     }//GEN-LAST:event_b95MouseEntered
 
     private void b96MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b96MouseEntered
-   
+
     }//GEN-LAST:event_b96MouseEntered
 
     private void b41MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b41MouseEntered
-        
+
     }//GEN-LAST:event_b41MouseEntered
 
     private void b97MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b97MouseEntered
-      
+
     }//GEN-LAST:event_b97MouseEntered
 
     private void b98MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b98MouseEntered
-      
+
     }//GEN-LAST:event_b98MouseEntered
 
     private void b99MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b99MouseEntered
-        
+
     }//GEN-LAST:event_b99MouseEntered
 
     private void b100MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b100MouseEntered
-       
+
     }//GEN-LAST:event_b100MouseEntered
-   
+
     private ImageIcon Cambiartamano(ImageIcon icono, int ancho, int alto) {
         Image imagen = icono.getImage();
         Image imgmod = imagen.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
@@ -3900,7 +3966,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new ProyectoStratego().setVisible(true);
