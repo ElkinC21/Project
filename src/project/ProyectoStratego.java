@@ -854,7 +854,6 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         }
         return contador;
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -966,6 +965,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b20 = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
         b97 = new javax.swing.JButton();
+        ficharevelar = new javax.swing.JLabel();
         b98 = new javax.swing.JButton();
         b99 = new javax.swing.JButton();
         b100 = new javax.swing.JButton();
@@ -1099,6 +1099,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b3.setForeground(new java.awt.Color(204, 204, 0));
         b3.setContentAreaFilled(false);
         b3.setPreferredSize(new java.awt.Dimension(50, 23));
+        b3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b3MouseEntered(evt);
+            }
+        });
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -1110,6 +1115,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b2.setForeground(new java.awt.Color(204, 204, 0));
         b2.setContentAreaFilled(false);
         b2.setPreferredSize(new java.awt.Dimension(50, 23));
+        b2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b2MouseEntered(evt);
+            }
+        });
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -1121,6 +1131,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b4.setForeground(new java.awt.Color(204, 204, 0));
         b4.setContentAreaFilled(false);
         b4.setPreferredSize(new java.awt.Dimension(50, 23));
+        b4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b4MouseEntered(evt);
+            }
+        });
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -1132,6 +1147,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b5.setForeground(new java.awt.Color(204, 204, 0));
         b5.setContentAreaFilled(false);
         b5.setPreferredSize(new java.awt.Dimension(50, 23));
+        b5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b5MouseEntered(evt);
+            }
+        });
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -1143,6 +1163,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b6.setForeground(new java.awt.Color(204, 204, 0));
         b6.setContentAreaFilled(false);
         b6.setPreferredSize(new java.awt.Dimension(50, 23));
+        b6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b6MouseEntered(evt);
+            }
+        });
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
@@ -1154,6 +1179,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b7.setForeground(new java.awt.Color(204, 204, 0));
         b7.setContentAreaFilled(false);
         b7.setPreferredSize(new java.awt.Dimension(50, 23));
+        b7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b7MouseEntered(evt);
+            }
+        });
         b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ActionPerformed(evt);
@@ -1165,6 +1195,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b8.setForeground(new java.awt.Color(204, 204, 0));
         b8.setContentAreaFilled(false);
         b8.setPreferredSize(new java.awt.Dimension(50, 23));
+        b8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b8MouseEntered(evt);
+            }
+        });
         b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ActionPerformed(evt);
@@ -1176,6 +1211,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b9.setForeground(new java.awt.Color(204, 204, 0));
         b9.setContentAreaFilled(false);
         b9.setPreferredSize(new java.awt.Dimension(50, 23));
+        b9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b9MouseEntered(evt);
+            }
+        });
         b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b9ActionPerformed(evt);
@@ -1187,6 +1227,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b10.setForeground(new java.awt.Color(204, 204, 0));
         b10.setContentAreaFilled(false);
         b10.setPreferredSize(new java.awt.Dimension(50, 23));
+        b10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b10MouseEntered(evt);
+            }
+        });
         b10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b10ActionPerformed(evt);
@@ -1198,6 +1243,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b11.setForeground(new java.awt.Color(204, 204, 0));
         b11.setContentAreaFilled(false);
         b11.setPreferredSize(new java.awt.Dimension(50, 23));
+        b11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b11MouseEntered(evt);
+            }
+        });
         b11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b11ActionPerformed(evt);
@@ -1209,6 +1259,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b12.setForeground(new java.awt.Color(204, 204, 0));
         b12.setContentAreaFilled(false);
         b12.setPreferredSize(new java.awt.Dimension(50, 23));
+        b12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b12MouseEntered(evt);
+            }
+        });
         b12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b12ActionPerformed(evt);
@@ -1220,6 +1275,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b13.setForeground(new java.awt.Color(204, 204, 0));
         b13.setContentAreaFilled(false);
         b13.setPreferredSize(new java.awt.Dimension(50, 23));
+        b13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b13MouseEntered(evt);
+            }
+        });
         b13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b13ActionPerformed(evt);
@@ -1231,6 +1291,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b14.setForeground(new java.awt.Color(204, 204, 0));
         b14.setContentAreaFilled(false);
         b14.setPreferredSize(new java.awt.Dimension(50, 23));
+        b14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b14MouseEntered(evt);
+            }
+        });
         b14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b14ActionPerformed(evt);
@@ -1242,6 +1307,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b15.setForeground(new java.awt.Color(204, 204, 0));
         b15.setContentAreaFilled(false);
         b15.setPreferredSize(new java.awt.Dimension(50, 23));
+        b15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b15MouseEntered(evt);
+            }
+        });
         b15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b15ActionPerformed(evt);
@@ -1253,6 +1323,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b16.setForeground(new java.awt.Color(204, 204, 0));
         b16.setContentAreaFilled(false);
         b16.setPreferredSize(new java.awt.Dimension(50, 23));
+        b16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b16MouseEntered(evt);
+            }
+        });
         b16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b16ActionPerformed(evt);
@@ -1264,6 +1339,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b17.setForeground(new java.awt.Color(204, 204, 0));
         b17.setContentAreaFilled(false);
         b17.setPreferredSize(new java.awt.Dimension(50, 23));
+        b17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b17MouseEntered(evt);
+            }
+        });
         b17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b17ActionPerformed(evt);
@@ -1275,6 +1355,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b18.setForeground(new java.awt.Color(204, 204, 0));
         b18.setContentAreaFilled(false);
         b18.setPreferredSize(new java.awt.Dimension(50, 23));
+        b18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b18MouseEntered(evt);
+            }
+        });
         b18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b18ActionPerformed(evt);
@@ -1286,6 +1371,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b19.setForeground(new java.awt.Color(204, 204, 0));
         b19.setContentAreaFilled(false);
         b19.setPreferredSize(new java.awt.Dimension(50, 23));
+        b19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b19MouseEntered(evt);
+            }
+        });
         b19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b19ActionPerformed(evt);
@@ -1297,6 +1387,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b21.setForeground(new java.awt.Color(204, 204, 0));
         b21.setContentAreaFilled(false);
         b21.setPreferredSize(new java.awt.Dimension(50, 23));
+        b21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b21MouseEntered(evt);
+            }
+        });
         b21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b21ActionPerformed(evt);
@@ -1308,6 +1403,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b22.setForeground(new java.awt.Color(204, 204, 0));
         b22.setContentAreaFilled(false);
         b22.setPreferredSize(new java.awt.Dimension(50, 23));
+        b22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b22MouseEntered(evt);
+            }
+        });
         b22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b22ActionPerformed(evt);
@@ -1319,6 +1419,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b23.setForeground(new java.awt.Color(204, 204, 0));
         b23.setContentAreaFilled(false);
         b23.setPreferredSize(new java.awt.Dimension(50, 23));
+        b23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b23MouseEntered(evt);
+            }
+        });
         b23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b23ActionPerformed(evt);
@@ -1330,6 +1435,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b24.setForeground(new java.awt.Color(204, 204, 0));
         b24.setContentAreaFilled(false);
         b24.setPreferredSize(new java.awt.Dimension(50, 23));
+        b24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b24MouseEntered(evt);
+            }
+        });
         b24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b24ActionPerformed(evt);
@@ -1341,6 +1451,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b25.setForeground(new java.awt.Color(204, 204, 0));
         b25.setContentAreaFilled(false);
         b25.setPreferredSize(new java.awt.Dimension(50, 23));
+        b25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b25MouseEntered(evt);
+            }
+        });
         b25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b25ActionPerformed(evt);
@@ -1352,6 +1467,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b26.setForeground(new java.awt.Color(204, 204, 0));
         b26.setContentAreaFilled(false);
         b26.setPreferredSize(new java.awt.Dimension(50, 23));
+        b26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b26MouseEntered(evt);
+            }
+        });
         b26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b26ActionPerformed(evt);
@@ -1363,6 +1483,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b27.setForeground(new java.awt.Color(204, 204, 0));
         b27.setContentAreaFilled(false);
         b27.setPreferredSize(new java.awt.Dimension(50, 23));
+        b27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b27MouseEntered(evt);
+            }
+        });
         b27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b27ActionPerformed(evt);
@@ -1374,6 +1499,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b28.setForeground(new java.awt.Color(204, 204, 0));
         b28.setContentAreaFilled(false);
         b28.setPreferredSize(new java.awt.Dimension(50, 23));
+        b28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b28MouseEntered(evt);
+            }
+        });
         b28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b28ActionPerformed(evt);
@@ -1385,6 +1515,14 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b29.setForeground(new java.awt.Color(204, 204, 0));
         b29.setContentAreaFilled(false);
         b29.setPreferredSize(new java.awt.Dimension(50, 23));
+        b29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b29MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b29MouseEntered(evt);
+            }
+        });
         b29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b29ActionPerformed(evt);
@@ -1396,6 +1534,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b30.setForeground(new java.awt.Color(204, 204, 0));
         b30.setContentAreaFilled(false);
         b30.setPreferredSize(new java.awt.Dimension(50, 23));
+        b30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b30MouseEntered(evt);
+            }
+        });
         b30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b30ActionPerformed(evt);
@@ -1407,6 +1550,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b31.setForeground(new java.awt.Color(204, 204, 0));
         b31.setContentAreaFilled(false);
         b31.setPreferredSize(new java.awt.Dimension(50, 23));
+        b31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b31MouseEntered(evt);
+            }
+        });
         b31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b31ActionPerformed(evt);
@@ -1416,8 +1564,14 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
 
         b32.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         b32.setForeground(new java.awt.Color(204, 204, 0));
+        b32.setBorderPainted(false);
         b32.setContentAreaFilled(false);
         b32.setPreferredSize(new java.awt.Dimension(50, 23));
+        b32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b32MouseEntered(evt);
+            }
+        });
         b32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b32ActionPerformed(evt);
@@ -1429,6 +1583,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b33.setForeground(new java.awt.Color(204, 204, 0));
         b33.setContentAreaFilled(false);
         b33.setPreferredSize(new java.awt.Dimension(50, 23));
+        b33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b33MouseEntered(evt);
+            }
+        });
         b33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b33ActionPerformed(evt);
@@ -1440,6 +1599,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b34.setForeground(new java.awt.Color(204, 204, 0));
         b34.setContentAreaFilled(false);
         b34.setPreferredSize(new java.awt.Dimension(50, 23));
+        b34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b34MouseEntered(evt);
+            }
+        });
         b34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b34ActionPerformed(evt);
@@ -1451,6 +1615,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b35.setForeground(new java.awt.Color(204, 204, 0));
         b35.setContentAreaFilled(false);
         b35.setPreferredSize(new java.awt.Dimension(50, 23));
+        b35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b35MouseEntered(evt);
+            }
+        });
         b35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b35ActionPerformed(evt);
@@ -1462,6 +1631,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b36.setForeground(new java.awt.Color(204, 204, 0));
         b36.setContentAreaFilled(false);
         b36.setPreferredSize(new java.awt.Dimension(50, 23));
+        b36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b36MouseEntered(evt);
+            }
+        });
         b36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b36ActionPerformed(evt);
@@ -1473,6 +1647,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b37.setForeground(new java.awt.Color(204, 204, 0));
         b37.setContentAreaFilled(false);
         b37.setPreferredSize(new java.awt.Dimension(50, 23));
+        b37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b37MouseEntered(evt);
+            }
+        });
         b37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b37ActionPerformed(evt);
@@ -1484,6 +1663,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b38.setForeground(new java.awt.Color(204, 204, 0));
         b38.setContentAreaFilled(false);
         b38.setPreferredSize(new java.awt.Dimension(50, 23));
+        b38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b38MouseEntered(evt);
+            }
+        });
         b38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b38ActionPerformed(evt);
@@ -1495,6 +1679,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b39.setForeground(new java.awt.Color(204, 204, 0));
         b39.setContentAreaFilled(false);
         b39.setPreferredSize(new java.awt.Dimension(50, 23));
+        b39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b39MouseEntered(evt);
+            }
+        });
         b39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b39ActionPerformed(evt);
@@ -1506,6 +1695,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b40.setForeground(new java.awt.Color(204, 204, 0));
         b40.setContentAreaFilled(false);
         b40.setPreferredSize(new java.awt.Dimension(50, 23));
+        b40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b40MouseEntered(evt);
+            }
+        });
         b40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b40ActionPerformed(evt);
@@ -1517,6 +1711,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b42.setForeground(new java.awt.Color(204, 204, 0));
         b42.setContentAreaFilled(false);
         b42.setPreferredSize(new java.awt.Dimension(50, 23));
+        b42.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b42MouseEntered(evt);
+            }
+        });
         b42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b42ActionPerformed(evt);
@@ -1528,6 +1727,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b43.setForeground(new java.awt.Color(204, 204, 0));
         b43.setContentAreaFilled(false);
         b43.setPreferredSize(new java.awt.Dimension(50, 23));
+        b43.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b43MouseEntered(evt);
+            }
+        });
         b43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b43ActionPerformed(evt);
@@ -1539,6 +1743,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b44.setForeground(new java.awt.Color(204, 204, 0));
         b44.setContentAreaFilled(false);
         b44.setPreferredSize(new java.awt.Dimension(50, 23));
+        b44.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b44MouseEntered(evt);
+            }
+        });
         b44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b44ActionPerformed(evt);
@@ -1550,6 +1759,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b45.setForeground(new java.awt.Color(204, 204, 0));
         b45.setContentAreaFilled(false);
         b45.setPreferredSize(new java.awt.Dimension(50, 23));
+        b45.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b45MouseEntered(evt);
+            }
+        });
         b45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b45ActionPerformed(evt);
@@ -1561,6 +1775,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b46.setForeground(new java.awt.Color(204, 204, 0));
         b46.setContentAreaFilled(false);
         b46.setPreferredSize(new java.awt.Dimension(50, 23));
+        b46.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b46MouseEntered(evt);
+            }
+        });
         b46.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b46ActionPerformed(evt);
@@ -1572,6 +1791,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b47.setForeground(new java.awt.Color(204, 204, 0));
         b47.setContentAreaFilled(false);
         b47.setPreferredSize(new java.awt.Dimension(50, 23));
+        b47.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b47MouseEntered(evt);
+            }
+        });
         b47.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b47ActionPerformed(evt);
@@ -1583,6 +1807,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b48.setForeground(new java.awt.Color(204, 204, 0));
         b48.setContentAreaFilled(false);
         b48.setPreferredSize(new java.awt.Dimension(50, 23));
+        b48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b48MouseEntered(evt);
+            }
+        });
         b48.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b48ActionPerformed(evt);
@@ -1594,6 +1823,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b49.setForeground(new java.awt.Color(204, 204, 0));
         b49.setContentAreaFilled(false);
         b49.setPreferredSize(new java.awt.Dimension(50, 23));
+        b49.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b49MouseEntered(evt);
+            }
+        });
         b49.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b49ActionPerformed(evt);
@@ -1605,6 +1839,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b50.setForeground(new java.awt.Color(204, 204, 0));
         b50.setContentAreaFilled(false);
         b50.setPreferredSize(new java.awt.Dimension(50, 23));
+        b50.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b50MouseEntered(evt);
+            }
+        });
         b50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b50ActionPerformed(evt);
@@ -1616,6 +1855,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b51.setForeground(new java.awt.Color(204, 204, 0));
         b51.setContentAreaFilled(false);
         b51.setPreferredSize(new java.awt.Dimension(50, 23));
+        b51.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b51MouseEntered(evt);
+            }
+        });
         b51.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b51ActionPerformed(evt);
@@ -1627,6 +1871,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b52.setForeground(new java.awt.Color(204, 204, 0));
         b52.setContentAreaFilled(false);
         b52.setPreferredSize(new java.awt.Dimension(50, 23));
+        b52.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b52MouseEntered(evt);
+            }
+        });
         b52.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b52ActionPerformed(evt);
@@ -1638,6 +1887,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b53.setForeground(new java.awt.Color(204, 204, 0));
         b53.setContentAreaFilled(false);
         b53.setPreferredSize(new java.awt.Dimension(50, 23));
+        b53.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b53MouseEntered(evt);
+            }
+        });
         b53.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b53ActionPerformed(evt);
@@ -1649,6 +1903,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b54.setForeground(new java.awt.Color(204, 204, 0));
         b54.setContentAreaFilled(false);
         b54.setPreferredSize(new java.awt.Dimension(50, 23));
+        b54.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b54MouseEntered(evt);
+            }
+        });
         b54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b54ActionPerformed(evt);
@@ -1660,6 +1919,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b55.setForeground(new java.awt.Color(204, 204, 0));
         b55.setContentAreaFilled(false);
         b55.setPreferredSize(new java.awt.Dimension(50, 23));
+        b55.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b55MouseEntered(evt);
+            }
+        });
         b55.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b55ActionPerformed(evt);
@@ -1671,6 +1935,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b56.setForeground(new java.awt.Color(204, 204, 0));
         b56.setContentAreaFilled(false);
         b56.setPreferredSize(new java.awt.Dimension(50, 23));
+        b56.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b56MouseEntered(evt);
+            }
+        });
         b56.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b56ActionPerformed(evt);
@@ -1682,6 +1951,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b57.setForeground(new java.awt.Color(204, 204, 0));
         b57.setContentAreaFilled(false);
         b57.setPreferredSize(new java.awt.Dimension(50, 23));
+        b57.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b57MouseEntered(evt);
+            }
+        });
         b57.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b57ActionPerformed(evt);
@@ -1693,6 +1967,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b58.setForeground(new java.awt.Color(204, 204, 0));
         b58.setContentAreaFilled(false);
         b58.setPreferredSize(new java.awt.Dimension(50, 23));
+        b58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b58MouseEntered(evt);
+            }
+        });
         b58.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b58ActionPerformed(evt);
@@ -1704,6 +1983,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b59.setForeground(new java.awt.Color(204, 204, 0));
         b59.setContentAreaFilled(false);
         b59.setPreferredSize(new java.awt.Dimension(50, 23));
+        b59.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b59MouseEntered(evt);
+            }
+        });
         b59.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b59ActionPerformed(evt);
@@ -1715,6 +1999,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b60.setForeground(new java.awt.Color(204, 204, 0));
         b60.setContentAreaFilled(false);
         b60.setPreferredSize(new java.awt.Dimension(50, 23));
+        b60.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b60MouseEntered(evt);
+            }
+        });
         b60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b60ActionPerformed(evt);
@@ -1726,6 +2015,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b61.setForeground(new java.awt.Color(204, 204, 0));
         b61.setContentAreaFilled(false);
         b61.setPreferredSize(new java.awt.Dimension(50, 23));
+        b61.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b61MouseEntered(evt);
+            }
+        });
         b61.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b61ActionPerformed(evt);
@@ -1737,6 +2031,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b62.setForeground(new java.awt.Color(204, 204, 0));
         b62.setContentAreaFilled(false);
         b62.setPreferredSize(new java.awt.Dimension(50, 23));
+        b62.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b62MouseEntered(evt);
+            }
+        });
         b62.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b62ActionPerformed(evt);
@@ -1748,6 +2047,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b63.setForeground(new java.awt.Color(204, 204, 0));
         b63.setContentAreaFilled(false);
         b63.setPreferredSize(new java.awt.Dimension(50, 23));
+        b63.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b63MouseEntered(evt);
+            }
+        });
         b63.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b63ActionPerformed(evt);
@@ -1759,6 +2063,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b64.setForeground(new java.awt.Color(204, 204, 0));
         b64.setContentAreaFilled(false);
         b64.setPreferredSize(new java.awt.Dimension(50, 23));
+        b64.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b64MouseEntered(evt);
+            }
+        });
         b64.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b64ActionPerformed(evt);
@@ -1770,6 +2079,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b65.setForeground(new java.awt.Color(204, 204, 0));
         b65.setContentAreaFilled(false);
         b65.setPreferredSize(new java.awt.Dimension(50, 23));
+        b65.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b65MouseEntered(evt);
+            }
+        });
         b65.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b65ActionPerformed(evt);
@@ -1781,6 +2095,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b66.setForeground(new java.awt.Color(204, 204, 0));
         b66.setContentAreaFilled(false);
         b66.setPreferredSize(new java.awt.Dimension(50, 23));
+        b66.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b66MouseEntered(evt);
+            }
+        });
         b66.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b66ActionPerformed(evt);
@@ -1792,6 +2111,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b67.setForeground(new java.awt.Color(204, 204, 0));
         b67.setContentAreaFilled(false);
         b67.setPreferredSize(new java.awt.Dimension(50, 23));
+        b67.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b67MouseEntered(evt);
+            }
+        });
         b67.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b67ActionPerformed(evt);
@@ -1803,6 +2127,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b68.setForeground(new java.awt.Color(204, 204, 0));
         b68.setContentAreaFilled(false);
         b68.setPreferredSize(new java.awt.Dimension(50, 23));
+        b68.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b68MouseEntered(evt);
+            }
+        });
         b68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b68ActionPerformed(evt);
@@ -1814,6 +2143,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b69.setForeground(new java.awt.Color(204, 204, 0));
         b69.setContentAreaFilled(false);
         b69.setPreferredSize(new java.awt.Dimension(50, 23));
+        b69.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b69MouseEntered(evt);
+            }
+        });
         b69.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b69ActionPerformed(evt);
@@ -1825,6 +2159,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b70.setForeground(new java.awt.Color(204, 204, 0));
         b70.setContentAreaFilled(false);
         b70.setPreferredSize(new java.awt.Dimension(50, 23));
+        b70.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b70MouseEntered(evt);
+            }
+        });
         b70.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b70ActionPerformed(evt);
@@ -1836,6 +2175,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b71.setForeground(new java.awt.Color(204, 204, 0));
         b71.setContentAreaFilled(false);
         b71.setPreferredSize(new java.awt.Dimension(50, 23));
+        b71.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b71MouseEntered(evt);
+            }
+        });
         b71.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b71ActionPerformed(evt);
@@ -1847,6 +2191,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b72.setForeground(new java.awt.Color(204, 204, 0));
         b72.setContentAreaFilled(false);
         b72.setPreferredSize(new java.awt.Dimension(50, 23));
+        b72.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b72MouseEntered(evt);
+            }
+        });
         b72.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b72ActionPerformed(evt);
@@ -1858,6 +2207,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b73.setForeground(new java.awt.Color(204, 204, 0));
         b73.setContentAreaFilled(false);
         b73.setPreferredSize(new java.awt.Dimension(50, 23));
+        b73.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b73MouseEntered(evt);
+            }
+        });
         b73.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b73ActionPerformed(evt);
@@ -1869,6 +2223,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b74.setForeground(new java.awt.Color(204, 204, 0));
         b74.setContentAreaFilled(false);
         b74.setPreferredSize(new java.awt.Dimension(50, 23));
+        b74.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b74MouseEntered(evt);
+            }
+        });
         b74.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b74ActionPerformed(evt);
@@ -1880,6 +2239,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b75.setForeground(new java.awt.Color(204, 204, 0));
         b75.setContentAreaFilled(false);
         b75.setPreferredSize(new java.awt.Dimension(50, 23));
+        b75.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b75MouseEntered(evt);
+            }
+        });
         b75.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b75ActionPerformed(evt);
@@ -1891,6 +2255,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b76.setForeground(new java.awt.Color(204, 204, 0));
         b76.setContentAreaFilled(false);
         b76.setPreferredSize(new java.awt.Dimension(50, 23));
+        b76.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b76MouseEntered(evt);
+            }
+        });
         b76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b76ActionPerformed(evt);
@@ -1902,6 +2271,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b77.setForeground(new java.awt.Color(204, 204, 0));
         b77.setContentAreaFilled(false);
         b77.setPreferredSize(new java.awt.Dimension(50, 23));
+        b77.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b77MouseEntered(evt);
+            }
+        });
         b77.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b77ActionPerformed(evt);
@@ -1913,6 +2287,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b78.setForeground(new java.awt.Color(204, 204, 0));
         b78.setContentAreaFilled(false);
         b78.setPreferredSize(new java.awt.Dimension(50, 23));
+        b78.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b78MouseEntered(evt);
+            }
+        });
         b78.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b78ActionPerformed(evt);
@@ -1924,6 +2303,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b79.setForeground(new java.awt.Color(204, 204, 0));
         b79.setContentAreaFilled(false);
         b79.setPreferredSize(new java.awt.Dimension(50, 23));
+        b79.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b79MouseEntered(evt);
+            }
+        });
         b79.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b79ActionPerformed(evt);
@@ -1935,6 +2319,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b80.setForeground(new java.awt.Color(204, 204, 0));
         b80.setContentAreaFilled(false);
         b80.setPreferredSize(new java.awt.Dimension(50, 23));
+        b80.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b80MouseEntered(evt);
+            }
+        });
         b80.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b80ActionPerformed(evt);
@@ -1957,6 +2346,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b82.setForeground(new java.awt.Color(204, 204, 0));
         b82.setContentAreaFilled(false);
         b82.setPreferredSize(new java.awt.Dimension(50, 23));
+        b82.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b82MouseEntered(evt);
+            }
+        });
         b82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b82ActionPerformed(evt);
@@ -1968,6 +2362,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b83.setForeground(new java.awt.Color(204, 204, 0));
         b83.setContentAreaFilled(false);
         b83.setPreferredSize(new java.awt.Dimension(50, 23));
+        b83.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b83MouseEntered(evt);
+            }
+        });
         b83.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b83ActionPerformed(evt);
@@ -1979,6 +2378,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b84.setForeground(new java.awt.Color(204, 204, 0));
         b84.setContentAreaFilled(false);
         b84.setPreferredSize(new java.awt.Dimension(50, 23));
+        b84.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b84MouseEntered(evt);
+            }
+        });
         b84.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b84ActionPerformed(evt);
@@ -1990,6 +2394,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b85.setForeground(new java.awt.Color(204, 204, 0));
         b85.setContentAreaFilled(false);
         b85.setPreferredSize(new java.awt.Dimension(50, 23));
+        b85.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b85MouseEntered(evt);
+            }
+        });
         b85.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b85ActionPerformed(evt);
@@ -2001,6 +2410,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b86.setForeground(new java.awt.Color(204, 204, 0));
         b86.setContentAreaFilled(false);
         b86.setPreferredSize(new java.awt.Dimension(50, 23));
+        b86.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b86MouseEntered(evt);
+            }
+        });
         b86.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b86ActionPerformed(evt);
@@ -2012,6 +2426,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b87.setForeground(new java.awt.Color(204, 204, 0));
         b87.setContentAreaFilled(false);
         b87.setPreferredSize(new java.awt.Dimension(50, 23));
+        b87.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b87MouseEntered(evt);
+            }
+        });
         b87.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b87ActionPerformed(evt);
@@ -2023,6 +2442,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b88.setForeground(new java.awt.Color(204, 204, 0));
         b88.setContentAreaFilled(false);
         b88.setPreferredSize(new java.awt.Dimension(50, 23));
+        b88.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b88MouseEntered(evt);
+            }
+        });
         b88.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b88ActionPerformed(evt);
@@ -2034,6 +2458,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b89.setForeground(new java.awt.Color(204, 204, 0));
         b89.setContentAreaFilled(false);
         b89.setPreferredSize(new java.awt.Dimension(50, 23));
+        b89.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b89MouseEntered(evt);
+            }
+        });
         b89.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b89ActionPerformed(evt);
@@ -2045,6 +2474,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b90.setForeground(new java.awt.Color(204, 204, 0));
         b90.setContentAreaFilled(false);
         b90.setPreferredSize(new java.awt.Dimension(50, 23));
+        b90.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b90MouseEntered(evt);
+            }
+        });
         b90.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b90ActionPerformed(evt);
@@ -2056,6 +2490,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b91.setForeground(new java.awt.Color(204, 204, 0));
         b91.setContentAreaFilled(false);
         b91.setPreferredSize(new java.awt.Dimension(50, 23));
+        b91.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b91MouseEntered(evt);
+            }
+        });
         b91.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b91ActionPerformed(evt);
@@ -2067,6 +2506,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b92.setForeground(new java.awt.Color(204, 204, 0));
         b92.setContentAreaFilled(false);
         b92.setPreferredSize(new java.awt.Dimension(50, 23));
+        b92.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b92MouseEntered(evt);
+            }
+        });
         b92.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b92ActionPerformed(evt);
@@ -2078,6 +2522,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b93.setForeground(new java.awt.Color(204, 204, 0));
         b93.setContentAreaFilled(false);
         b93.setPreferredSize(new java.awt.Dimension(50, 23));
+        b93.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b93MouseEntered(evt);
+            }
+        });
         b93.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b93ActionPerformed(evt);
@@ -2089,6 +2538,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b94.setForeground(new java.awt.Color(204, 204, 0));
         b94.setContentAreaFilled(false);
         b94.setPreferredSize(new java.awt.Dimension(50, 23));
+        b94.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b94MouseEntered(evt);
+            }
+        });
         b94.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b94ActionPerformed(evt);
@@ -2100,6 +2554,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b95.setForeground(new java.awt.Color(204, 204, 0));
         b95.setContentAreaFilled(false);
         b95.setPreferredSize(new java.awt.Dimension(50, 23));
+        b95.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b95MouseEntered(evt);
+            }
+        });
         b95.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b95ActionPerformed(evt);
@@ -2111,6 +2570,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b96.setForeground(new java.awt.Color(204, 204, 0));
         b96.setContentAreaFilled(false);
         b96.setPreferredSize(new java.awt.Dimension(50, 23));
+        b96.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b96MouseEntered(evt);
+            }
+        });
         b96.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b96ActionPerformed(evt);
@@ -2122,6 +2586,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b41.setForeground(new java.awt.Color(204, 204, 0));
         b41.setContentAreaFilled(false);
         b41.setPreferredSize(new java.awt.Dimension(50, 23));
+        b41.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b41MouseEntered(evt);
+            }
+        });
         b41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b41ActionPerformed(evt);
@@ -2133,6 +2602,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b20.setForeground(new java.awt.Color(204, 204, 0));
         b20.setContentAreaFilled(false);
         b20.setPreferredSize(new java.awt.Dimension(50, 23));
+        b20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b20MouseEntered(evt);
+            }
+        });
         b20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b20ActionPerformed(evt);
@@ -2142,8 +2616,14 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
 
         b1.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         b1.setForeground(new java.awt.Color(204, 204, 0));
+        b1.setBorderPainted(false);
         b1.setContentAreaFilled(false);
         b1.setPreferredSize(new java.awt.Dimension(50, 23));
+        b1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b1MouseEntered(evt);
+            }
+        });
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -2155,17 +2635,28 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b97.setForeground(new java.awt.Color(204, 204, 0));
         b97.setContentAreaFilled(false);
         b97.setPreferredSize(new java.awt.Dimension(50, 23));
+        b97.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b97MouseEntered(evt);
+            }
+        });
         b97.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b97ActionPerformed(evt);
             }
         });
         getContentPane().add(b97, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 60, 60));
+        getContentPane().add(ficharevelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 640, 100, 130));
 
         b98.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         b98.setForeground(new java.awt.Color(204, 204, 0));
         b98.setContentAreaFilled(false);
         b98.setPreferredSize(new java.awt.Dimension(50, 23));
+        b98.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b98MouseEntered(evt);
+            }
+        });
         b98.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b98ActionPerformed(evt);
@@ -2177,6 +2668,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b99.setForeground(new java.awt.Color(204, 204, 0));
         b99.setContentAreaFilled(false);
         b99.setPreferredSize(new java.awt.Dimension(50, 23));
+        b99.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b99MouseEntered(evt);
+            }
+        });
         b99.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b99ActionPerformed(evt);
@@ -2188,6 +2684,11 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         b100.setForeground(new java.awt.Color(204, 204, 0));
         b100.setContentAreaFilled(false);
         b100.setPreferredSize(new java.awt.Dimension(50, 23));
+        b100.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b100MouseEntered(evt);
+            }
+        });
         b100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b100ActionPerformed(evt);
@@ -2945,9 +3446,9 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     }
 
     // refresca la vista del tablero
-    revelarFichas();
+    
     guardar();
-    ocultarFichas();
+    
     limpiarpintados();
     fichaseleccionada = null;
     Batalla = false;
@@ -2964,6 +3465,408 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
 
 
     }//GEN-LAST:event_continuarActionPerformed
+
+    private void b91MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b91MouseEntered
+  
+    }//GEN-LAST:event_b91MouseEntered
+
+    private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
+      
+    }//GEN-LAST:event_b1MouseEntered
+
+    private void b2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseEntered
+    
+    }//GEN-LAST:event_b2MouseEntered
+
+    private void b3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseEntered
+         
+    }//GEN-LAST:event_b3MouseEntered
+
+    private void b4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseEntered
+       
+    }//GEN-LAST:event_b4MouseEntered
+
+    private void b5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseEntered
+    
+    }//GEN-LAST:event_b5MouseEntered
+
+    private void b6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseEntered
+        
+    }//GEN-LAST:event_b6MouseEntered
+
+    private void b7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseEntered
+      
+    }//GEN-LAST:event_b7MouseEntered
+
+    private void b8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseEntered
+     
+    }//GEN-LAST:event_b8MouseEntered
+
+    private void b9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseEntered
+       
+    }//GEN-LAST:event_b9MouseEntered
+
+    private void b10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b10MouseEntered
+       
+    }//GEN-LAST:event_b10MouseEntered
+
+    private void b11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b11MouseEntered
+        
+    }//GEN-LAST:event_b11MouseEntered
+
+    private void b12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b12MouseEntered
+     
+    }//GEN-LAST:event_b12MouseEntered
+
+    private void b13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b13MouseEntered
+      
+    }//GEN-LAST:event_b13MouseEntered
+
+    private void b14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b14MouseEntered
+      
+    }//GEN-LAST:event_b14MouseEntered
+
+    private void b15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b15MouseEntered
+    
+    }//GEN-LAST:event_b15MouseEntered
+
+    private void b16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b16MouseEntered
+        
+    }//GEN-LAST:event_b16MouseEntered
+
+    private void b17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b17MouseEntered
+     
+    }//GEN-LAST:event_b17MouseEntered
+
+    private void b18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b18MouseEntered
+      
+    }//GEN-LAST:event_b18MouseEntered
+
+    private void b19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b19MouseEntered
+    
+    }//GEN-LAST:event_b19MouseEntered
+
+    private void b20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b20MouseEntered
+ 
+    }//GEN-LAST:event_b20MouseEntered
+
+    private void b21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b21MouseEntered
+       
+    }//GEN-LAST:event_b21MouseEntered
+
+    private void b22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b22MouseEntered
+     
+    }//GEN-LAST:event_b22MouseEntered
+
+    private void b23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b23MouseEntered
+   
+    }//GEN-LAST:event_b23MouseEntered
+
+    private void b24MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b24MouseEntered
+    
+    }//GEN-LAST:event_b24MouseEntered
+
+    private void b25MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b25MouseEntered
+       
+    }//GEN-LAST:event_b25MouseEntered
+
+    private void b26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b26MouseEntered
+     
+    }//GEN-LAST:event_b26MouseEntered
+
+    private void b27MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b27MouseEntered
+      
+    }//GEN-LAST:event_b27MouseEntered
+
+    private void b28MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b28MouseEntered
+   
+    }//GEN-LAST:event_b28MouseEntered
+
+    private void b29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b29MouseClicked
+      
+    }//GEN-LAST:event_b29MouseClicked
+
+    private void b29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b29MouseEntered
+    
+    }//GEN-LAST:event_b29MouseEntered
+
+    private void b30MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b30MouseEntered
+   
+    }//GEN-LAST:event_b30MouseEntered
+
+    private void b31MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b31MouseEntered
+      
+    }//GEN-LAST:event_b31MouseEntered
+
+    private void b32MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b32MouseEntered
+          
+    }//GEN-LAST:event_b32MouseEntered
+
+    private void b33MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b33MouseEntered
+          
+    }//GEN-LAST:event_b33MouseEntered
+
+    private void b34MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b34MouseEntered
+        
+    }//GEN-LAST:event_b34MouseEntered
+
+    private void b35MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b35MouseEntered
+        
+    }//GEN-LAST:event_b35MouseEntered
+
+    private void b36MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b36MouseEntered
+        
+    }//GEN-LAST:event_b36MouseEntered
+
+    private void b37MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b37MouseEntered
+        
+    }//GEN-LAST:event_b37MouseEntered
+
+    private void b38MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b38MouseEntered
+        
+    }//GEN-LAST:event_b38MouseEntered
+
+    private void b39MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b39MouseEntered
+       
+    }//GEN-LAST:event_b39MouseEntered
+
+    private void b40MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b40MouseEntered
+       
+    }//GEN-LAST:event_b40MouseEntered
+
+    private void b42MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b42MouseEntered
+         
+    }//GEN-LAST:event_b42MouseEntered
+
+    private void b43MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b43MouseEntered
+   
+    }//GEN-LAST:event_b43MouseEntered
+
+    private void b44MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b44MouseEntered
+     
+    }//GEN-LAST:event_b44MouseEntered
+
+    private void b45MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b45MouseEntered
+   
+    }//GEN-LAST:event_b45MouseEntered
+
+    private void b46MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b46MouseEntered
+   
+    }//GEN-LAST:event_b46MouseEntered
+
+    private void b47MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b47MouseEntered
+     
+    }//GEN-LAST:event_b47MouseEntered
+
+    private void b48MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b48MouseEntered
+     
+    }//GEN-LAST:event_b48MouseEntered
+
+    private void b49MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b49MouseEntered
+   
+    }//GEN-LAST:event_b49MouseEntered
+
+    private void b50MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b50MouseEntered
+      
+    }//GEN-LAST:event_b50MouseEntered
+
+    private void b51MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b51MouseEntered
+  
+    }//GEN-LAST:event_b51MouseEntered
+
+    private void b52MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b52MouseEntered
+      
+    }//GEN-LAST:event_b52MouseEntered
+
+    private void b53MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b53MouseEntered
+     
+    }//GEN-LAST:event_b53MouseEntered
+
+    private void b54MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b54MouseEntered
+     
+    }//GEN-LAST:event_b54MouseEntered
+
+    private void b55MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b55MouseEntered
+     
+    }//GEN-LAST:event_b55MouseEntered
+
+    private void b56MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b56MouseEntered
+       
+    }//GEN-LAST:event_b56MouseEntered
+
+    private void b57MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b57MouseEntered
+    
+    }//GEN-LAST:event_b57MouseEntered
+
+    private void b58MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b58MouseEntered
+     
+    }//GEN-LAST:event_b58MouseEntered
+
+    private void b59MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b59MouseEntered
+       
+    }//GEN-LAST:event_b59MouseEntered
+
+    private void b60MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b60MouseEntered
+       
+    }//GEN-LAST:event_b60MouseEntered
+
+    private void b61MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b61MouseEntered
+     
+    }//GEN-LAST:event_b61MouseEntered
+
+    private void b62MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b62MouseEntered
+        
+    }//GEN-LAST:event_b62MouseEntered
+
+    private void b63MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b63MouseEntered
+      
+    }//GEN-LAST:event_b63MouseEntered
+
+    private void b64MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b64MouseEntered
+      
+    }//GEN-LAST:event_b64MouseEntered
+
+    private void b65MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b65MouseEntered
+     
+    }//GEN-LAST:event_b65MouseEntered
+
+    private void b66MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b66MouseEntered
+     
+    }//GEN-LAST:event_b66MouseEntered
+
+    private void b67MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b67MouseEntered
+    
+    }//GEN-LAST:event_b67MouseEntered
+
+    private void b68MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b68MouseEntered
+      
+    }//GEN-LAST:event_b68MouseEntered
+
+    private void b69MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b69MouseEntered
+       
+    }//GEN-LAST:event_b69MouseEntered
+
+    private void b70MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b70MouseEntered
+      
+    }//GEN-LAST:event_b70MouseEntered
+
+    private void b71MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b71MouseEntered
+      
+    }//GEN-LAST:event_b71MouseEntered
+
+    private void b72MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b72MouseEntered
+     
+    }//GEN-LAST:event_b72MouseEntered
+
+    private void b73MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b73MouseEntered
+       
+    }//GEN-LAST:event_b73MouseEntered
+
+    private void b74MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b74MouseEntered
+  
+    }//GEN-LAST:event_b74MouseEntered
+
+    private void b75MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b75MouseEntered
+        
+    }//GEN-LAST:event_b75MouseEntered
+
+    private void b76MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b76MouseEntered
+         
+    }//GEN-LAST:event_b76MouseEntered
+
+    private void b77MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b77MouseEntered
+     
+    }//GEN-LAST:event_b77MouseEntered
+
+    private void b78MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b78MouseEntered
+        
+    }//GEN-LAST:event_b78MouseEntered
+
+    private void b79MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b79MouseEntered
+    
+    }//GEN-LAST:event_b79MouseEntered
+
+    private void b80MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b80MouseEntered
+       
+    }//GEN-LAST:event_b80MouseEntered
+
+    private void b82MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b82MouseEntered
+       
+    }//GEN-LAST:event_b82MouseEntered
+
+    private void b83MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b83MouseEntered
+      
+    }//GEN-LAST:event_b83MouseEntered
+
+    private void b84MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b84MouseEntered
+      
+    }//GEN-LAST:event_b84MouseEntered
+
+    private void b85MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b85MouseEntered
+     
+    }//GEN-LAST:event_b85MouseEntered
+
+    private void b86MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b86MouseEntered
+      
+    }//GEN-LAST:event_b86MouseEntered
+
+    private void b87MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b87MouseEntered
+        
+    }//GEN-LAST:event_b87MouseEntered
+
+    private void b88MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b88MouseEntered
+         
+    }//GEN-LAST:event_b88MouseEntered
+
+    private void b89MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b89MouseEntered
+       
+    }//GEN-LAST:event_b89MouseEntered
+
+    private void b90MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b90MouseEntered
+        
+    
+    }//GEN-LAST:event_b90MouseEntered
+
+    private void b92MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b92MouseEntered
+       
+    }//GEN-LAST:event_b92MouseEntered
+
+    private void b93MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b93MouseEntered
+        
+    }//GEN-LAST:event_b93MouseEntered
+
+    private void b94MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b94MouseEntered
+         
+    }//GEN-LAST:event_b94MouseEntered
+
+    private void b95MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b95MouseEntered
+         
+    }//GEN-LAST:event_b95MouseEntered
+
+    private void b96MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b96MouseEntered
+   
+    }//GEN-LAST:event_b96MouseEntered
+
+    private void b41MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b41MouseEntered
+        
+    }//GEN-LAST:event_b41MouseEntered
+
+    private void b97MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b97MouseEntered
+      
+    }//GEN-LAST:event_b97MouseEntered
+
+    private void b98MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b98MouseEntered
+      
+    }//GEN-LAST:event_b98MouseEntered
+
+    private void b99MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b99MouseEntered
+        
+    }//GEN-LAST:event_b99MouseEntered
+
+    private void b100MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b100MouseEntered
+       
+    }//GEN-LAST:event_b100MouseEntered
+   
     private ImageIcon Cambiartamano(ImageIcon icono, int ancho, int alto) {
         Image imagen = icono.getImage();
         Image imgmod = imagen.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
@@ -3109,6 +4012,7 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     private javax.swing.JButton b99;
     private javax.swing.JLabel conteobatalla;
     private javax.swing.JButton continuar;
+    private javax.swing.JLabel ficharevelar;
     private javax.swing.JLabel heroe1;
     private javax.swing.JLabel heroe10;
     private javax.swing.JLabel heroe11;
