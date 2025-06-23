@@ -1,9 +1,10 @@
 package project;
+
 import java.awt.Image;
 import java.net.URL;
 
 import javax.swing.JButton;
-
+import proyecto2.Juego;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class ProyectoStratego extends javax.swing.JFrame {
-   
+    private Juego gameMenu;
   private boolean Batalla=false;
   private int Batallaconteo;
   private Timer battleTimer;
@@ -120,6 +121,12 @@ public class ProyectoStratego extends javax.swing.JFrame {
 
     public ProyectoStratego() {
        
+        initComponents();
+        
+
+    }
+ public ProyectoStratego(Juego menu) {
+        this.gameMenu = menu; 
         initComponents();
         
         jLabel5.setIcon(new ImageIcon(getClass().getResource("/project/tablerofinal_1.png")));
@@ -256,9 +263,7 @@ public class ProyectoStratego extends javax.swing.JFrame {
         inicializarFormacion(heroes, false);
         guardar();
         ocultarFichas();
-
-    }
-
+ }
     private void pintaropciones(int fila, int columna) {
         int rango = fichas[fila][columna].getRango();
         int filaup;
@@ -841,7 +846,17 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
             }
         }
     }
+ public void endGame(String result, int finalScore) {
+        this.dispose(); 
 
+        if (gameMenu != null) {
+            gameMenu.gameFinished(result, finalScore); 
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Partida terminada: " + result + " con " + finalScore + " puntos.");
+        }
+    }
+ 
     private int contarFichasRestantes(String turno) {
         int contador = 0;
         for (int fila = 0; fila < 10; fila++) {
