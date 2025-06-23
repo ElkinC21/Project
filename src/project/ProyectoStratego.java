@@ -1,7 +1,7 @@
 package project;
 
 import java.awt.Image;
-import java.net.URL;
+
 
 import javax.swing.JButton;
 import proyecto2.Juego;
@@ -122,13 +122,6 @@ public class ProyectoStratego extends javax.swing.JFrame {
     public ProyectoStratego() {
        
         initComponents();
-        
-
-    }
- public ProyectoStratego(Juego menu) {
-        this.gameMenu = menu; 
-        initComponents();
-        
         jLabel5.setIcon(new ImageIcon(getClass().getResource("/project/tablerofinal_1.png")));
       Doradofondo.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
       Doradofondoheroes.setIcon(new ImageIcon(getClass().getResource("/project/Marco_270x770.png")));
@@ -136,10 +129,7 @@ public class ProyectoStratego extends javax.swing.JFrame {
       Fondopanelpelea.setIcon(new ImageIcon(getClass().getResource("/project/resized_image_750x470.png")));
       villano1.setIcon(new ImageIcon(getClass().getResource("/project/VILLANOS-ELIMINADOS_230X25_1.png")));
       tituloheroes.setIcon(new ImageIcon(getClass().getResource("/project/HEROES-ELIMINADOS_230X25.png")));
-      
-      
-      
-      
+    
         
         continuar.setVisible(false);
         Fondopanelpelea.setVisible(false);
@@ -263,7 +253,9 @@ public class ProyectoStratego extends javax.swing.JFrame {
         inicializarFormacion(heroes, false);
         guardar();
         ocultarFichas();
- }
+
+    }
+    
     private void pintaropciones(int fila, int columna) {
         int rango = fichas[fila][columna].getRango();
         int filaup;
@@ -3453,14 +3445,12 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
         guardariconos[filaficha1][colficha1] = null;
     }
 
-    // cambia el turno sin usar operador ternario
     if (turno.equals("Heroes")) {
         turno = "Villanos";
     } else {
         turno = "Heroes";
     }
 
-    // refresca la vista del tablero
     
     guardar();
     
@@ -3468,7 +3458,6 @@ private void Batalla(Ficha ficha, Ficha ficha2) {
     fichaseleccionada = null;
     Batalla = false;
 
-    // comprueba si el siguiente jugador tiene movimientos
     if (!vermovimientos() || contarFichasRestantes(turno) == 0) {
         JOptionPane.showMessageDialog(
             this,

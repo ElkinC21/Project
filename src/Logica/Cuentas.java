@@ -27,7 +27,7 @@ public class Cuentas {
         registrarUsuario("admin", "12345");
         Usuario usuarioPrueba = buscarUsuario("admin");
         if (usuarioPrueba != null) {
-            // Añadir algunos juegos de ejemplo
+            // Anadir algunos juegos de ejemplo
             usuarioPrueba.registrojuegos(new juego("TERMINADO - 5/5 correctas", 500));
             usuarioPrueba.registrojuegos(new juego("TERMINADO - 3/5 correctas", 300));
             usuarioPrueba.registrojuegos(new juego("TERMINADO - 4/5 correctas", 400));
